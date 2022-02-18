@@ -30,8 +30,6 @@
   - indocker
   - never
 
-
-
 - name: Sign Docker  GPG
   apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
@@ -47,7 +45,6 @@
   tags:
   - indocker
   - never
-
 
 - name: Install Docker
   apt:
@@ -115,5 +112,3 @@
   tags:
   - undockercompose
   - never
-
-
