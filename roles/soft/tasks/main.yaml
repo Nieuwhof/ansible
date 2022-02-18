@@ -100,3 +100,20 @@
   - undocker
   - never
 
+- name: Install Docker compose
+  apt:
+    name: docker-compose
+    state: present
+  tags:
+  - indockercompose
+  - never
+
+- name: Remove Docker compose
+  apt:
+    name: docker-compose
+    state: absent
+  tags:
+  - undockercompose
+  - never
+
+
