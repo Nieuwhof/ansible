@@ -23,7 +23,7 @@
 - name: Set up authorized keys for the deployer user
   authorized_key: user=ops key="{{item}}"
   with_file:
-    - /Users/ops/.ssh/id_rsa.pub
+    - /Users/nibiru/ansible/pubkey/id_rsa.pub
 
 - name: Add sudoers users to sudo  group
   user:
@@ -34,7 +34,7 @@
     createhome=yes
 
 - name: Set up authorized keys for the deployer user
-  authorized_key: user=ops key="{{item}}"
+  authorized_key: user=nibiru key="{{item}}"
   with_file:
-    - /Users/ops/.ssh/id_rsa2.pub
+    - /Users/nibiru/ansible/pubkey/id_rsa2.pub
     
