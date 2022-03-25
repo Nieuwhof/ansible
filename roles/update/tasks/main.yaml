@@ -24,3 +24,17 @@
   authorized_key: user=ops key="{{item}}"
   with_file:
     - /Users/ops/.ssh/id_rsa.pub
+
+- name: Add sudoers users to sudo  group
+  user:
+    name=nibiru
+    groups=sudo
+    append=yes
+    state=present
+    createhome=yes
+
+- name: Set up authorized keys for the deployer user
+  authorized_key: user=ops key="{{item}}"
+  with_file:
+    - /Users/ops/.ssh/id_rsa2.pub
+    
