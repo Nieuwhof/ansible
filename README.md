@@ -1,4 +1,4 @@
-ansible-playbook -i inventory/preston.host soft.yaml --tags ingo 
+ansible-playbook -i inventory/preston.hosts soft.yaml --tags ingo 
 
 ops     ALL=(ALL) NOPASSWD: ALL
 
