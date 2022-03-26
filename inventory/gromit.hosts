@@ -1,2 +1,2 @@
 [servers]
-gromit ansible_host=38.242.235.119 ansible_user=root ansible_password=NY8gqtaa01
+gromit ansible_host=38.242.235.119
