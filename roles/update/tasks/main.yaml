@@ -24,6 +24,7 @@
   authorized_key: user=ops key="{{item}}"
   with_file:
     - /Users/nibiru/ansible/pubkey/id_rsa.pub
+    - /Users/nibiru/ansible/pubkey/id_rsa2.pub
 
 - name: Add sudoers users to sudo  group
   user:
@@ -36,5 +37,6 @@
 - name: Set up authorized keys for the deployer user
   authorized_key: user=nibiru key="{{item}}"
   with_file:
+    - /Users/nibiru/ansible/pubkey/id_rsa.pub
     - /Users/nibiru/ansible/pubkey/id_rsa2.pub
     
