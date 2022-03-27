@@ -26,6 +26,7 @@
      - curl
      - gnupg-agent
      - software-properties-common
+     - python3-docker 
   tags:
   - indocker
   - never
@@ -40,7 +41,7 @@
 
 - name: Install Docker repository
   apt_repository:
-     repo: deb https://download.docker.com/linux/ubuntu bionic stable
+     repo: deb https://download.docker.com/linux/ubuntu focal stable
      state: present
   tags:
   - indocker
@@ -78,7 +79,7 @@
 
 - name: Remove git
   apt:
-    name: git-allo
+    name: git-all
     state: absent
   tags:
   - ungit
@@ -164,4 +165,39 @@
   tags:
   - innginx
   - never
+
+- name: Install RDP
+  apt:
+    name: "{{item}}"
+    state: absent 
+    update_cache: yes
+  loop:
+     - xfce4
+     - teamviewer
+  tags:
+  - inrdp
+  - never
+
+- name: Install MC
+  apt:
+    name: "{{item}}"
+    state: latest
+    update_cache: yes
+  loop:
+     - mc
+  tags:
+  - inmc
+  - never
+ 
+- name: Install MC
+  apt:
+    name: "{{item}}"
+    state: absent
+    update_cache: yes
+  loop:
+     - mc
+  tags:
+  - unmc
+  - never
+
 
