@@ -32,17 +32,30 @@
         - ubuntu
 
 
-- name: Set up authorized keys for the deployer user
+- name: Set up authorized keys for the ops user
   authorized_key: 
        user: ops
        state: present
-       key: "{{ item }}"  
-  with_file:
-     - "~/ansible/pubkey/id_rsa.pub"
-     - "~/ansible/pubkey/id_rsa2.pub"
-     - "~/ansible/pubkey/ubuntu-test0.pub"
-     - "~/ansible/pubkey/ubuntu-test1.pub"
-     - "~/ansible/pubkey/ubuntu-primary.pub"
+       key: "{{ lookup('file', item) }}"  
+  with_fileglob:
+     - ~/ansible/pubkey/*
+
+- name: Set up authorized keys for the nibiru user
+  authorized_key: 
+       user: nibiru         
+       state: present
+       key: "{{ lookup('file', item) }}"
+  with_fileglob:
+     - ~/ansible/pubkey/*
+
+- name: Set up authorized keys for the ubuntu user
+  authorized_key: 
+       user: ops         
+       state: present
+       key: "{{ lookup('file', item) }}"
+  with_fileglob:
+     - ~/ansible/pubkey/*
+
 
 - name: Generate /etc/hosts file
   template:
