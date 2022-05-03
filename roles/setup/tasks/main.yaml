@@ -1,0 +1,52 @@
+---
+
+- name: Update Upgrade
+  apt:
+    update_cache: yes
+    upgrade: yes
+
+- name: Install sudo
+  apt:
+     name: sudo
+     state: present
+
+- name: Allow 'sudo' group to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%sudo'
+    line: '%sudo ALL=(ALL:ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
+
+
+- name: Add sudoers users to sudo  group
+  user:
+    name="{{ item }}"
+    groups=sudo
+    append=yes
+    state=present
+    createhome=yes
+  with_items:
+        - ops
+        - nibiru
+        - ubuntu
+
+
+- name: Set up authorized keys for the deployer user
+  authorized_key: 
+       user: ops
+       state: present
+       key: "{{ item }}"  
+  with_file:
+     - "~/ansible/pubkey/id_rsa.pub"
+     - "~/ansible/pubkey/id_rsa2.pub"
+     - "~/ansible/pubkey/ubuntu-test0.pub"
+     - "~/ansible/pubkey/ubuntu-test1.pub"
+     - "~/ansible/pubkey/ubuntu-primary.pub"
+
+- name: Generate /etc/hosts file
+  template:
+    src=hosts.j2
+    dest=/etc/cloud/templates/hosts.debian.tmpl
+
+    
