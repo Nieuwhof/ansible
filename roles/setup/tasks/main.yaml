@@ -1,12 +1,12 @@
 ---
 
-- name: Update Upgrade
-  apt:
-    update_cache: yes
-    upgrade: yes
+#- name: Update Upgrade
+#  dnf:
+#    name: "*"
+#    state: latest
 
 - name: Install sudo
-  apt:
+  dnf:
      name: sudo
      state: present
 
@@ -22,14 +22,14 @@
 - name: Add sudoers users to sudo  group
   user:
     name="{{ item }}"
-    groups=sudo
+    groups=wheel
     append=yes
     state=present
     createhome=yes
   with_items:
         - ops
-        - nibiru
-        - ubuntu
+#        - nibiru
+#        - ubuntu
 
 
 - name: Set up authorized keys for the ops user
@@ -38,28 +38,28 @@
        state: present
        key: "{{ lookup('file', item) }}"  
   with_fileglob:
-     - ~/ansible/pubkey/*
+     - /home/ops/.ssh/source.pub
 
-- name: Set up authorized keys for the nibiru user
-  authorized_key: 
-       user: nibiru         
-       state: present
-       key: "{{ lookup('file', item) }}"
-  with_fileglob:
-     - ~/ansible/pubkey/*
+#- name: Set up authorized keys for the nibiru user
+#  authorized_key: 
+#       user: nibiru         
+#       state: present
+#       key: "{{ lookup('file', item) }}"
+#  with_fileglob:
+#     - ~/ansible/pubkey/*
 
-- name: Set up authorized keys for the ubuntu user
-  authorized_key: 
-       user: ops         
-       state: present
-       key: "{{ lookup('file', item) }}"
-  with_fileglob:
-     - ~/ansible/pubkey/*
+#- name: Set up authorized keys for the ubuntu user
+#  authorized_key: 
+#       user: ops         
+#       state: present
+#       key: "{{ lookup('file', item) }}"
+#  with_fileglob:
+#     - ~/ansible/pubkey/*
 
 
 - name: Generate /etc/hosts file
   template:
     src=hosts.j2
-    dest=/etc/cloud/templates/hosts.debian.tmpl
+    dest=/etc/hosts
 
     
