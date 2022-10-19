@@ -1,7 +1,7 @@
 ---
 - name: Install go
   apt:
-    name: golang-go
+    name: golang
     state: present
   tags: 
   - ingo
