@@ -195,7 +195,7 @@
       - nginx_nginx_conf:/etc/nginx/
       - nginx_html:/usr/share/nginx/html/
   tags:
-  - innginx
+  - cinnginx
   - never
 
 - name: Install RDP
