@@ -11,7 +11,7 @@
   apt:
     name: nginx
     state: absent
-  tag:
+  tags:
   - unnginx
   - never
 
