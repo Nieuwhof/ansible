@@ -1,1 +1,47 @@
+---
+- name: Update Upgrade
+  apt:
+    update_cache: yes
+    upgrade: yes
 
+- name: Install sudo
+  apt:
+     name: sudo
+     state: present
+
+- name: Allow 'sudo' group to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%sudo'
+    line: '%sudo ALL=(ALL:ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
+
+- name: Add sudoers users to sudo  group
+  user:
+    name=ops
+    groups=sudo
+    append=yes
+    state=present
+    createhome=yes
+
+- name: Set up authorized keys for the deployer user
+  authorized_key: user=ops key="{{item}}"
+  with_file:
+    - /Users/nibiru/ansible/pubkey/id_rsa.pub
+    - /Users/nibiru/ansible/pubkey/id_rsa2.pub
+
+- name: Add sudoers users to sudo  group
+  user:
+    name=nibiru
+    groups=sudo
+    append=yes
+    state=present
+    createhome=yes
+
+- name: Set up authorized keys for the deployer user
+  authorized_key: user=nibiru key="{{item}}"
+  with_file:
+    - /Users/nibiru/ansible/pubkey/id_rsa.pub
+    - /Users/nibiru/ansible/pubkey/id_rsa2.pub
+    
