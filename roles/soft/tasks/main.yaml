@@ -3,9 +3,9 @@
   apt:
     name: nginx
     state: present
- tags:
- - innginx
- - never
+  tags:
+  - innginx
+  - never
  
 - name: Remove nginx
   apt:
