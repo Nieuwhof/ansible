@@ -1,12 +1,12 @@
 ---
 
-#- name: Update Upgrade
-#  dnf:
-#    name: "*"
-#    state: latest
+- name: Update Upgrade
+  apt:
+    name: "*"
+    state: latest
 
 - name: Install sudo
-  dnf:
+  apt:
      name: sudo
      state: present
 
