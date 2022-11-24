@@ -1,7 +1,7 @@
 ---
 - name: Install go
   apt:
-    name: golang-go
+    name: golang
     state: present
   tags: 
   - ingo
@@ -9,7 +9,7 @@
 
 - name: Remove go
   apt:
-    name: golang-go
+    name: golang
     state: absent
   tags: 
   - ungo
