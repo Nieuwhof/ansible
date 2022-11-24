@@ -1,4 +1,20 @@
 ---
+- name: Install nginx
+  apt:
+    name: nginx
+    state: present
+ tags:
+ - innginx
+ - never
+ 
+- name: Remove nginx
+  apt:
+    name: nginx
+    state: absent
+  tag:
+  - unnginx
+  - never
+
 - name: Install go
   apt:
     name: golang
