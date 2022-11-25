@@ -31,6 +31,18 @@
 #        - nibiru
 #        - ubuntu
 
+- name: be sure ntp is installed
+  apt:
+    name: ntp
+    state: present
+
+- name: be sure ntp is configured
+  template:
+    src: ntp.conf.j2
+    dest: /etc/ntp.conf
+  notify:
+    - restart ntpd
+  tags: ntp
 
 - name: Set up authorized keys for the ops user
   authorized_key: 
@@ -57,8 +69,8 @@
 #     - ~/ansible/pubkey/*
 
 
-- name: Generate /etc/hosts file
-  template:
-    src=hosts.j2
-    dest=/etc/hosts
+#- name: Generate /etc/hosts file
+#  template:
+#    src=hosts.j2
+#    dest=/etc/hosts
     
