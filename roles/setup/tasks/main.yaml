@@ -22,7 +22,7 @@
 - name: Add sudoers users to sudo  group
   user:
     name="{{ item }}"
-    groups=wheel
+    groups=sudo
     append=yes
     state=present
     createhome=yes
@@ -61,5 +61,4 @@
   template:
     src=hosts.j2
     dest=/etc/hosts
-
     
