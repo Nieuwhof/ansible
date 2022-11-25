@@ -42,7 +42,6 @@
     dest: /etc/ntp.conf
   notify:
     - restart ntpd
-  tags: ntp
 
 - name: Set up authorized keys for the ops user
   authorized_key: 
