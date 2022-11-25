@@ -6,7 +6,7 @@ all:
       hosts:
         foo.example.com:
         bar.example.com:
-    dbservers:
+   servers:
       hosts:
         one.example.com:
         two.example.com:
