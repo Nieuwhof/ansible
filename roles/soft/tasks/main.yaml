@@ -160,42 +160,9 @@
       - "51413:51413/udp"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /data/transmission:/downloads
+      - /mnt/data/transmission:/downloads
   tags:
   - intransmission
-  - never
-
-- name: Create jupyter container
-  docker_container:
-    name: jupyter
-    image: benthomasson/ansible-jupyter-kernel
-    state: started
-    recreate: yes
-    restart_policy: always
-    published_ports:
-      - "8888:8888"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - $(pwd):/home/jovyan/work
-  tags:
-  - injupyter
-  - never
-
-- name: Install Nginx container
-  docker_container:
-    name: nginx
-    image: nginx
-    state: started
-    recreate: yes
-    restart_policy: always
-    published_ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - nginx_nginx_conf:/etc/nginx/
-      - nginx_html:/usr/share/nginx/html/
-  tags:
-  - cinnginx
   - never
 
 - name: Install RDP
