@@ -1,0 +1,5 @@
+---
+- name: Update Upgrade
+  yum:
+    update_cache: yes
+    upgrade: yes
