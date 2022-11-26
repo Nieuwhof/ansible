@@ -11,5 +11,5 @@ all:
       hosts:
         test:
     timeserver:
-      host:
+      hosts:
         tineserve
