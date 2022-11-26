@@ -1,0 +1,15 @@
+---
+all:
+  hosts:
+    wallace:
+  children:
+    webservers:
+      hosts:
+        gromit:
+        preston:
+    yum:
+      hosts:
+        test:
+    timeserver:
+      host:
+        tineserve
