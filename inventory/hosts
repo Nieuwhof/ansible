@@ -1,13 +1,13 @@
 ---
 all:
   hosts:
-    wallace:
+#    wallace:
   children:
     webservers:
       hosts:
         gromit:
         preston:
-    yum:
+    Fedora:
       hosts:
         test:
     timeservers:

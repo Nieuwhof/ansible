@@ -1,9 +1,0 @@
----
-- hosts: yum
-  become: true
-  become_user: root
-  roles:
-     - yumupdate
-
-
-
