@@ -1,5 +1,5 @@
 ---
-- name: be sure ntp is installed
+- name: be sure nginx is installed
   apt:
     name: nginx
     state: present
