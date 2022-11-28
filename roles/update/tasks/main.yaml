@@ -2,18 +2,20 @@
 
 #- block:     # for redhat
     
-- name: Update packages list
-  dnf: update_cache=yes
+- name: Update packages list Redhat
+  dnf: "name=* state=latest"
   when: ansible_os_family == 'RedHat'
 
-- name: Upgrade packages
-  dnf: upgrade=safe
-  when: ansible_os_family == 'Debian'
+- name: Upgrade all RedHat packages
+  ansible.builtin.dnf:
+    name: "*"
+    state: latest
+  when: ansible_os_family == 'RedHat'
 
-- name: Update packages list
+- name: Update packages Debian list
   apt: update_cache=yes
   when: ansible_os_family == 'Debian'
 
-- name: Upgrade packages
+- name: Upgrade packages Debian
   apt: upgrade=safe
   when: ansible_os_family == 'Debian'
