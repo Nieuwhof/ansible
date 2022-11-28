@@ -1,0 +1,75 @@
+---
+
+- name: Update Upgrade
+  apt:
+    name: "*"
+    state: latest
+
+- name: Install sudo
+  apt:
+     name: sudo
+     state: present
+
+- name: Allow 'sudo' group to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%sudo'
+    line: '%sudo ALL=(ALL:ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
+
+
+- name: Add sudoers users to sudo  group
+  user:
+    name="{{ item }}"
+    groups=sudo
+    append=yes
+    state=present
+    createhome=yes
+  with_items:
+        - ops
+#        - nibiru
+#        - ubuntu
+
+- name: be sure ntp is installed
+  apt:
+    name: ntp
+    state: present
+
+- name: be sure ntp is configured
+  template:
+    src: ntp.conf.j2
+    dest: /etc/ntp.conf
+  notify:
+    - restart ntpd
+
+- name: Set up authorized keys for the ops user
+  authorized_key: 
+       user: ops
+       state: present
+       key: "{{ lookup('file', item) }}"  
+  with_fileglob:
+     - /home/ops/.ssh/source.pub
+
+#- name: Set up authorized keys for the nibiru user
+#  authorized_key: 
+#       user: nibiru         
+#       state: present
+#       key: "{{ lookup('file', item) }}"
+#  with_fileglob:
+#     - ~/ansible/pubkey/*
+
+#- name: Set up authorized keys for the ubuntu user
+#  authorized_key: 
+#       user: ops         
+#       state: present
+#       key: "{{ lookup('file', item) }}"
+#  with_fileglob:
+#     - ~/ansible/pubkey/*
+
+
+#- name: Generate /etc/hosts file
+#  template:
+#    src=hosts.j2
+#    dest=/etc/hosts
+    
