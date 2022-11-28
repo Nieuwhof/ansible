@@ -8,8 +8,8 @@
   template:
     src: index.nginx-debian.html.j2
     dest: /var/www/html
-  notify:
-    - restart nginx
+  #notify:
+  # - restart nginx
 
 #- name: Generate /etc/hosts file
 #  template:
