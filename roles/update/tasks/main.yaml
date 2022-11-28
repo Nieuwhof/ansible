@@ -3,14 +3,14 @@
 #- block:     # for redhat
     
 - name: Update RedHat Upgrade
-    yum:
+  yum:
       update_cache: yes
       upgrade: yes
 
   when: ansible_os_family == "RedHat"
 
 - name: Update Debian Upgrade
-    apt:
+  apt:
       update_cache: yes
       upgrade: yes
 
