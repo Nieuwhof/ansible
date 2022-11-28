@@ -7,6 +7,7 @@ all:
       hosts:
         gromit:
         preston:
+        web:
     Fedora:
       hosts:
         test:
