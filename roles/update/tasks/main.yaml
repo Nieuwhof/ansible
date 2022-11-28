@@ -2,14 +2,18 @@
 
 #- block:     # for redhat
     
-- name: Update all packages to their latest version
-  ansible.builtin.dnf:
-    name: "*"
-    state: latest
-    when: ansible_os_family == "RedHat"
+- name: Update packages list
+  dnf: update_cache=yes
+  when: ansible_os_family == 'RedHat'
 
-- name: Update all packages to their latest version
-  ansible.builtin.apt:
-    name: "*"
-    state: latest
-    when: ansible_os_family == "Debian"
+- name: Upgrade packages
+  dnf: upgrade=safe
+  when: ansible_os_family == 'Debian'
+
+- name: Update packages list
+  apt: update_cache=yes
+  when: ansible_os_family == 'Debian'
+
+- name: Upgrade packages
+  apt: upgrade=safe
+  when: ansible_os_family == 'Debian'
