@@ -1,5 +1,5 @@
 ---
-- hosts: gromit, preston, timeserver, test
+- hosts: gromit, preston, timeserver, test, nweb
   become: true
   become_user: root
   roles:
