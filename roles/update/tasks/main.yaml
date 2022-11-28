@@ -2,14 +2,14 @@
 
 #- block:     # for redhat
     
-- name: Update RedHat Upgrade
-  yum:
-      update_cache: yes
-      upgrade: yes
+- name: Update all packages to their latest version
+  ansible.builtin.dnf:
+    name: "*"
+    state: latest
       when: ansible_os_family == "RedHat"
 
-- name: Update Debian Upgrade
-  apt:
-      update_cache: yes
-      upgrade: yes
+- name: Update all packages to their latest version
+  ansible.builtin.apt:
+    name: "*"
+    state: latest
       when: ansible_os_family == "Debian"
