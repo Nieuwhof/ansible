@@ -1,6 +1,7 @@
 ---
-- hosts: nweb
+- hosts: nweb, gromit, preston
   become: true
   become_user: root
   roles:
      - websetup
+    
