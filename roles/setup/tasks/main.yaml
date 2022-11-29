@@ -5,6 +5,10 @@
     name: "*"
     state: latest
 
+- name: Set a hostname
+  ansible.builtin.hostname:
+    name: wallace
+
 - name: Install sudo
   apt:
      name: sudo
