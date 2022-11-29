@@ -16,7 +16,6 @@
   git:
     repo: https://github.com/Nieuwhof/multipass.git
     dest: /cloud/multipass/
-    mode: 1755
     clone: yes
     update: yes
 
