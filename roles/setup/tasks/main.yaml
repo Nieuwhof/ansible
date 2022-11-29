@@ -170,18 +170,12 @@
   apt:
     name: docker-compose
     state: present
-  tags:
-  - indockercompose
-  - never
-
+ 
 - name: Remove Docker compose
   apt:
     name: docker-compose
     state: absent
-  tags:
-  - undockercompose
-  - never
-
+ 
 - name: Create portainer container
   docker_container:
     name: portainer
