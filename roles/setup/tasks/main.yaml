@@ -85,7 +85,6 @@
   copy:
       src: /cloud/multipass/
       dest: /home/ops/cloud/
-      directory_mode:
 
 - name: install packages
   apt:
