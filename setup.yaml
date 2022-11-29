@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: testusers
   become: true
   roles:
      - setup
