@@ -110,9 +110,6 @@
 
 - name: Execute cloud
   ansible.builtin.shell: chmod +x /home/ops/cloud/*
-  args:
-    executable: /bin/bash
-
 
 - name: install packages
   apt:
