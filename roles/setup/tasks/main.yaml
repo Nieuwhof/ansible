@@ -128,3 +128,7 @@
        - nano
        - snapd
                  
+- name: Install "multipass" with option --channel=latest/edge
+  community.general.snap:
+    name: multipass
+    channel: latest/edge
