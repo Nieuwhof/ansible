@@ -61,10 +61,10 @@
 #     - /cloud/ansible/pubkey/RKey/id_rsa.pub
 #     - /cloud/ansible/pubkey/RKey/id_rsa
 
-- name: copy RKey to /root/.ssh/
-  copy:
-      src: /cloud/ansible/pubkey/RKey/
-      dest: /root/.ssh
+#- name: copy RKey to /root/.ssh/
+#  copy:
+#      src: /cloud/ansible/pubkey/RKey/
+#      dest: /root/.ssh
 
 #- name: Set up authorized keys for the ubuntu user
 #  authorized_key: 
