@@ -75,7 +75,7 @@
 
 - name: copy multipass to /home/ops/cloud
   copy:
-      src: ~/cloud/multipass/
+      src: /root/cloud/multipass/
       dest: /home/ops/cloud/
       directory_mode:
 
