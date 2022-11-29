@@ -108,8 +108,15 @@
       remote_src: true
   become: true 
 
-- name: Execute cloud
-  shell: chmod +x /home/ops/cloud/*
+#- name: Execute cloud
+#  shell: chmod +x /home/ops/cloud/*
+
+- name: 'Execute cloud'
+ ansible.builtin.file:
+   mode: '+x'
+   path: '/home/ops/cloud'
+   state: 'directory'
+   recurse: yes
 
 - name: install packages
   apt:
