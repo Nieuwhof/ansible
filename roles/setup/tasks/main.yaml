@@ -84,7 +84,7 @@
 - name: copy multipass to /home/ops/cloud
   copy:
       src: /cloud/multipass/
-      dest: /home/ops/cloud/
+      dest: /home/ops/cloud
 
 - name: install packages
   apt:
