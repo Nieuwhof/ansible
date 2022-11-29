@@ -56,11 +56,11 @@
   authorized_key: 
        user: root
        state: present
-       key: "{{ lookup('file', item) }}"
-       remote_src: true  
+       key: "{{ lookup('file', item) }}"  
   with_fileglob:
      - /cloud/ansible/pubkey/RKey/id_rsa.pub
      - /cloud/ansible/pubkey/RKey/id_rsa
+       remote_src: true
   become: true
 
 #- name: copy RKey to /root/.ssh/
