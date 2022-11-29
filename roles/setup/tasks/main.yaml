@@ -3,7 +3,7 @@
   ansible.builtin.file:
     path: /cloud
     state: directory
-    mode: '1755'
+    mode: 1755
 
 - name: Clone a ansible script github repository
   git:
@@ -16,6 +16,7 @@
   git:
     repo: https://github.com/Nieuwhof/multipass.git
     dest: /cloud/multipass/
+    mode: 1755
     clone: yes
     update: yes
 
@@ -98,7 +99,7 @@
   ansible.builtin.file:
     path: /home/ops/cloud
     state: directory
-    mode: '1755'
+    mode: 1755
 
 - name: copy multipass to /home/ops/cloud
   copy:
