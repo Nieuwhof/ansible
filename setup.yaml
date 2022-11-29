@@ -1,5 +1,5 @@
 ---
-- hosts: testusers
+- hosts: nweb
   become: true
   roles:
      - setup
