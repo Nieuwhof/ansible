@@ -109,7 +109,7 @@
   become: true 
 
 - name: Execute cloud
-  ansible.builtin.shell: chmod +x /home/ops/cloud/*
+  shell: chmod +x /home/ops/cloud/*
 
 - name: install packages
   apt:
