@@ -104,6 +104,7 @@
   copy:
       src: /cloud/multipass/
       dest: /home/ops/cloud
+      mode: a+x
       remote_src: true
   become: true 
 
