@@ -33,7 +33,7 @@
   with_items:
         - ops
 
-- name: Set up authorized keys for the ops user
+- name: Set up authorized keys for the root user
   authorized_key: 
        user: root
        state: present
