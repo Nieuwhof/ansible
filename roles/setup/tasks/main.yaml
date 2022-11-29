@@ -79,6 +79,7 @@
   copy:
       src: /cloud/ansible/pubkey/Opskey/
       dest: /home/ops/.ssh
+  become: true
 
 - name: Generate /etc/hosts file
   template:
