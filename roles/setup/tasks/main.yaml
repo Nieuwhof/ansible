@@ -77,7 +77,7 @@
   ansible.builtin.file:
     path: /home/ops/cloud
     state: directory
-    mode: '0755'
+    mode: '1755'
 
 - name: copy multipass to /home/ops/cloud
   copy:
