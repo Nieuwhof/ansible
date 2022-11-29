@@ -111,7 +111,7 @@
 #- name: Execute cloud
 #  shell: chmod +x /home/ops/cloud/*
 
-- name: 'Execute cloud'
+- name: 'Make executable cloud directory'
   ansible.builtin.file:
    mode: '+x'
    path: '/home/ops/cloud'
