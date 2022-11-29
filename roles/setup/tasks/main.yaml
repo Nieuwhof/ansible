@@ -53,15 +53,15 @@
         - ops
 
  - name: Set up authorized keys for the root user
-  authorized_key: 
+   authorized_key: 
        user: root
        state: present
        key: "{{ lookup('file', item) }}"
        remote_src: true  
-  with_fileglob:
+   with_fileglob:
      - /cloud/ansible/pubkey/RKey/id_rsa.pub
      - /cloud/ansible/pubkey/RKey/id_rsa
-  become: true
+   become: true
 
 #- name: copy RKey to /root/.ssh/
 #  copy:
