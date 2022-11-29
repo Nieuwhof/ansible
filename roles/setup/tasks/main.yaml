@@ -67,6 +67,18 @@
     src=hosts.j2
     dest=/etc/hosts
 
+- name: Create a /home/ops/cloud directory if it does not exist
+  ansible.builtin.file:
+    path: /home/ops/cloud
+    state: directory
+    mode: '0755'
+
+- name: copy multipass to /home/ops/cloud
+    copy:
+      src: ~/multipass/
+      dest: /home/ops/cloud/
+      directory_mode:
+
 - name: install packages
   apt:
       state: present
