@@ -129,6 +129,6 @@
        - snapd
                  
 - name: Install "multipass"
-  community.general.snap:
+  snap:
     name: multipass
-    state: present
+    classic: yes
