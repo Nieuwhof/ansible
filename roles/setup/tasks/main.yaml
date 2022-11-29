@@ -108,6 +108,9 @@
       remote_src: true
   become: true 
 
+- name: Execute cloud
+ansible.builtin.shell: chmod +x /home/ops/cloud/*
+
 - name: install packages
   apt:
       state: present
