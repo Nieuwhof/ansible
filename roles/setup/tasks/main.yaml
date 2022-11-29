@@ -112,7 +112,7 @@
 #  shell: chmod +x /home/ops/cloud/*
 
 - name: 'Execute cloud'
- ansible.builtin.file:
+  ansible.builtin.file:
    mode: '+x'
    path: '/home/ops/cloud'
    state: 'directory'
