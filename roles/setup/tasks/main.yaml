@@ -52,23 +52,33 @@
   with_items:
         - ops
 
-- name: Set up authorized keys for the root user
-  authorized_key: 
-       user: root
-       state: present
-       key: "{{ lookup('file', item) }}"  
-  with_fileglob:
-     - /cloud/ansible/pubkey/RKey/id_rsa.pub
-     - /cloud/ansible/pubkey/RKey/id_rsa
+# - name: Set up authorized keys for the root user
+#  authorized_key: 
+#       user: root
+#       state: present
+#       key: "{{ lookup('file', item) }}"  
+#  with_fileglob:
+#     - /cloud/ansible/pubkey/RKey/id_rsa.pub
+#     - /cloud/ansible/pubkey/RKey/id_rsa
 
-- name: Set up authorized keys for the ubuntu user
-  authorized_key: 
-       user: ops         
-       state: present
-       key: "{{ lookup('file', item) }}"
-  with_fileglob:
-     - /cloud/ansible/pubkey/Opskey/id_rsa.pub
-     - /cloud/ansible/pubkey/Opskey/id_rsa
+- name: copy RKey to /root/.ssh/
+  copy:
+      src: /cloud/ansible/pubkey/RKey/
+      dest: /root/.ssh
+
+#- name: Set up authorized keys for the ubuntu user
+#  authorized_key: 
+#       user: ops         
+#       state: present
+#       key: "{{ lookup('file', item) }}"
+#  with_fileglob:
+#     - /cloud/ansible/pubkey/Opskey/id_rsa.pub
+#     - /cloud/ansible/pubkey/Opskey/id_rsa
+
+- name: copy Opskey to /home/ops/.ssh/
+  copy:
+      src: /cloud/ansible/pubkey/Opskey/
+      dest: /home/ops/.ssh
 
 - name: Generate /etc/hosts file
   template:
