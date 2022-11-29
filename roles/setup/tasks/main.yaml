@@ -52,16 +52,14 @@
   with_items:
         - ops
 
-- name: Set up authorized keys for the root user
-  authorized_key: 
-       user: root
-       state: present
-       key: "{{ lookup('file', item) }}"  
-  with_fileglob:
-     - /cloud/ansible/pubkey/RKey/id_rsa.pub
-     - /cloud/ansible/pubkey/RKey/id_rsa
-       remote_src: true
-  become: true
+#- name: Set up authorized keys for the root user
+#  authorized_key: 
+#       user: root
+#       state: present
+#       key: "{{ lookup('file', item) }}"  
+#  with_fileglob:
+#     - /cloud/ansible/pubkey/RKey/id_rsa.pub
+#     - /cloud/ansible/pubkey/RKey/id_rsa
 
 #- name: copy RKey to /root/.ssh/
 #  copy:
@@ -84,6 +82,13 @@
       remote_src: true
   become: true
 
+- name: copy Rkey to /root/.ssh/
+  copy:
+      src: /cloud/ansible/pubkey/Opskey/
+      dest: /root/.ssh
+      remote_src: true
+  become: true  
+
 - name: Generate /etc/hosts file
   template:
     src=hosts.j2
@@ -99,6 +104,8 @@
   copy:
       src: /cloud/multipass/
       dest: /home/ops/cloud
+      remote_src: true
+  become: true 
 
 - name: install packages
   apt:
