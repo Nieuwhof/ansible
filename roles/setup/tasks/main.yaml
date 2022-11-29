@@ -58,7 +58,8 @@
        state: present
        key: "{{ lookup('file', item) }}"  
   with_fileglob:
-     - /cloud/ansible/pubkey/RKey/*
+     - /cloud/ansible/pubkey/RKey/id_rsa.pub
+     - /cloud/ansible/pubkey/RKey/id_rsa
 
 - name: Set up authorized keys for the ubuntu user
   authorized_key: 
@@ -66,7 +67,8 @@
        state: present
        key: "{{ lookup('file', item) }}"
   with_fileglob:
-     - /cloud/ansible/pubkey/Opskey/*
+     - /cloud/ansible/pubkey/Opskey/id_rsa.pub
+     - /cloud/ansible/pubkey/Opskey/id_rsa
 
 - name: Generate /etc/hosts file
   template:
