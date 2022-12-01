@@ -1,7 +1,7 @@
 ---
 all:
   hosts:
-#    wallace:
+    wallace:
   children:
     webservers:
       hosts:
