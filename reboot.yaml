@@ -3,6 +3,5 @@
   become: true
   become_user: root
 
-- name: Unconditionally reboot the machine with all defaults
+- name: Unconditionally reboot
   ansible.builtin.reboot:
-  
