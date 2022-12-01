@@ -3,5 +3,6 @@
   become: true
   become_user: root
 
+tasks:
 - name: Unconditionally reboot
   ansible.builtin.reboot:
