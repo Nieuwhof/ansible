@@ -171,4 +171,4 @@
       - "8443:8443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - portainer/vscode/config:/config
+      - /portainer/vscode/config:/config
