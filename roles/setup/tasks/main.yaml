@@ -139,7 +139,7 @@
     state: latest
     update_cache: true
 
-#
+
 - name: Install Docker compose
   apt:
     name: docker-compose
