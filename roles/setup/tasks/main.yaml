@@ -173,9 +173,4 @@
       - /var/run/docker.sock:/var/run/docker.sock
       - /portainer/vscode/config:/config
 
-- name: Change the working directory to /opt before executing the command
-  ansible.builtin.shell: ./build.sh test1 && sudo ./build.sh test
-  args:
-    chdir: /home/ops/cloud
-  become: Yes
-  become_user: ops
+
