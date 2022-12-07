@@ -173,8 +173,8 @@
       - /var/run/docker.sock:/var/run/docker.sock
       - /portainer/vscode/config:/config
 
-     - name: Change the working directory to /opt before executing the command
-       ansible.builtin.shell: su ops && sudo ./build.sh gromit && sudo ./build.sh preston
-       args:
-         chdir: /home/ops/cloud
+- name: Change the working directory to /opt before executing the command
+    ansible.builtin.shell: su ops && sudo ./build.sh gromit && sudo ./build.sh preston
+     args:
+       chdir: /home/ops/cloud
 
