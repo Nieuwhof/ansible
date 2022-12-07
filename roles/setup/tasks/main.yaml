@@ -174,7 +174,7 @@
       - /portainer/vscode/config:/config
 
 - name: Change the working directory to /opt before executing the command
-  ansible.builtin.shell: su ops Cd /home/ops/cloud && sudo ./build.sh gromit && sudo ./build.sh preston
+  ansible.builtin.shell: ./build.sh gromit && ./build.sh preston
     args:
       chdir: /home/ops/cloud
   become: Yes
