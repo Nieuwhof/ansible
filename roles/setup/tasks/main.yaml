@@ -173,4 +173,8 @@
       - /var/run/docker.sock:/var/run/docker.sock
       - /portainer/vscode/config:/config
 
-
+- lineinfile:
+   path: /etc/sudoers
+   state: present
+   regexp: '^Defaults        secure_path\s'
+   line: 'Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"'
