@@ -45,7 +45,7 @@
 - name: Add sudoers users to sudo group
   user:
     name="{{ item }}"
-    groups=sudo,admins
+    groups=sudo
     append=yes
     state=present
     shell=/bin/bash
