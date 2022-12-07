@@ -168,7 +168,7 @@
     recreate: yes
     restart_policy: always
     published_ports:
-      - "8443:8443"
+      - "8043:8443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /portainer/vscode/config:/config
