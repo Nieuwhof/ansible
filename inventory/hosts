@@ -7,6 +7,7 @@ all:
     webservers:
       hosts:
         gromit:
+          ansible_host: 10.107.204.15
         preston:
         nweb:
     Fedora:
