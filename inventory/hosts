@@ -9,6 +9,7 @@ all:
         gromit:
           ansible_host: 10.107.204.15
         preston:
+          ansible_host: 10.107.204.161
         nweb:
     Fedora:
       hosts:
