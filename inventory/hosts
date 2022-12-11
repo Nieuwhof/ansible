@@ -6,8 +6,8 @@ all:
   children:
     webservers:
       hosts:
-        gromit:
-        ansible_host: 10.107.204.15
+        gromit.thespot.rocks:
+#        ansible_host: 10.107.204.15
         preston:
           ansible_host: 10.107.204.161
         nweb:
