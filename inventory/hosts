@@ -12,7 +12,7 @@ all:
       hosts:
         fedora.thespot.rocks:
           ansible_host: 10.107.204.201
-          rocky.thespot.rocks:
+        rocky.thespot.rocks:
     timeservers:
       hosts:
         timeserver.thespot.rocks:
