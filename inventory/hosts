@@ -15,3 +15,4 @@ all:
     timeservers:
       hosts:
         timeserver.thespot.rocks:
+        ansible_host: 10.107.204.72
