@@ -12,6 +12,7 @@ all:
     Fedora:
       hosts:
         fedora.thespot.rocks:
+          ansible_host: 10.107.204.201
     timeservers:
       hosts:
         timeserver.thespot.rocks:
