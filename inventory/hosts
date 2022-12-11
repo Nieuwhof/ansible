@@ -8,7 +8,7 @@ all:
       hosts:
         gromit.thespot.rocks:
         preston.thespot.rocks:
-        nweb:
+        rocky.thespot.rocks:
     Fedora:
       hosts:
         fedora.thespot.rocks:
