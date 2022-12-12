@@ -2,20 +2,62 @@
 
 #- block:     # for redhat
     
-- name: Update packages list Redhat
-  dnf: "name=* state=latest"
-  when: ansible_os_family == 'RedHat'
+#- name: Update packages list Redhat
+#  dnf: "name=* state=latest"
+#  when: ansible_os_family == 'RedHat'
 
-- name: Upgrade all RedHat packages
-  ansible.builtin.dnf:
-    name: "*"
-    state: latest
-  when: ansible_os_family == 'RedHat'
+#- name: Upgrade all RedHat packages
+#  dnf:
+#    name: "*"
+#    state: latest
+#  when: ansible_os_family == 'RedHat'
 
-- name: Update packages Debian list
-  apt: update_cache=yes
-  when: ansible_os_family == 'Debian'
+  - name: Update all installed packages using YUM module
+    yum:
+      name: '*'
+      state: latest
+      update_cache: yes
+      update_only: yes
+    register: yum_update_status
+    when: ansible_os_family == 'RedHat'
 
-- name: Upgrade packages Debian
-  apt: upgrade=safe
-  when: ansible_os_family == 'Debian'
+  - name: Remove packates not needed anymore
+    yum:
+      autoremove: yes
+    when: ansible_os_family == 'RedHat'
+      
+  - name: Reboot when packages were updated
+    reboot:
+    when: yum_update_status.changed
+
+- name: Update all installed packages using APT module
+    apt:
+      name: '*'
+      state: latest
+      update_cache: yes
+      only_upgrade: yes
+    register: apt_update_status
+    when: ansible_os_family == 'Debian'
+
+  - name: Remove packages not needed anymore
+    apt:
+      autoremove: yes
+    when: ansible_os_family == 'Debian'
+
+  - name: Reboot when packages were updated
+    reboot:
+      post_reboot_delay: 60
+    when: apt_update_status.changed
+
+- hosts: ipkg
+  tasks:
+  - name: Update the Packages installed on Diskstation
+    command: /opt/bin/ipkg update && /opt/bin/ipkg upgrade
+
+#- name: Update packages Debian list
+#  apt: update_cache=yes
+#  when: ansible_os_family == 'Debian'
+
+#- name: Upgrade packages Debian
+#  apt: upgrade=safe
+#  when: ansible_os_family == 'Debian'
