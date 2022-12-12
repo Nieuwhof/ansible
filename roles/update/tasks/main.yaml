@@ -31,23 +31,23 @@
     when: yum_update_status.changed
 
 - name: Update all installed packages using APT module
-    apt:
-      name: '*'
-      state: latest
-      update_cache: yes
-      only_upgrade: yes
-    register: apt_update_status
-    when: ansible_os_family == 'Debian'
+  apt:
+    name: '*'
+    state: latest
+    update_cache: yes
+    only_upgrade: yes
+  register: apt_update_status
+  when: ansible_os_family == 'Debian'
 
-  - name: Remove packages not needed anymore
-    apt:
-      autoremove: yes
-    when: ansible_os_family == 'Debian'
+- name: Remove packages not needed anymore
+  apt:
+    autoremove: yes
+  when: ansible_os_family == 'Debian'
 
-  - name: Reboot when packages were updated
-    reboot:
-      post_reboot_delay: 60
-    when: apt_update_status.changed
+- name: Reboot when packages were updated
+  reboot:
+    post_reboot_delay: 60
+  when: apt_update_status.changed
 
 - hosts: ipkg
   tasks:
