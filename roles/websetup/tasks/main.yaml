@@ -11,15 +11,20 @@
     state: present
   when: ansible_os_family in ['RedHat', 'Rocky']
 
-- name: be sure nginx is configured
+- name: be sure nginx is configured Debian
   template:
     src: index.nginx-debian.html.j2
     dest: /var/www/html/index.nginx-debian.html
   when: ansible_os_family in ['Debian', 'Ubuntu']
 
-- name: be sure nginx is configured
+- name: be sure nginx is configured RedHat
   template:
     src: index.nginx-debian.html.j2
     dest: /usr/share/nginx/html/index.html
   when: ansible_os_family in ['RedHat', 'Rocky'] 
  
+- name: restart service
+  service:
+    name: httpd
+    state: restarted
+    
