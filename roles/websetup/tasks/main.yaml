@@ -1,18 +1,19 @@
 ---
-- name: be sure nginx is installed
+- name: Install Nginx if 'Debian'
   apt:
     name: nginx
     state: present
+when: ansible_os_family in ['Debian', 'Ubuntu']
+
+- name: Install Nginx if 'RedHat'
+   yum:
+     name: nginx
+     state: present
+   when: ansible_os_family in ['RedHat', 'Rocky']
 
 - name: be sure nginx is configured
   template:
     src: index.nginx-debian.html.j2
     dest: /var/www/html/index.nginx-debian.html
-  #notify:
-  # - restart nginx
-
-#- name: Generate /etc/hosts file
-#  template:
-#    src=hosts.j2
-#    dest=/etc/hosts
-    
+ 
+ 
