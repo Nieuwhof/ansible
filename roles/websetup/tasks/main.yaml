@@ -3,13 +3,13 @@
   apt:
     name: nginx
     state: present
-when: ansible_os_family in ['Debian', 'Ubuntu']
+  when: ansible_os_family in ['Debian', 'Ubuntu']
 
 - name: Install Nginx if 'RedHat'
-   yum:
-     name: nginx
-     state: present
-   when: ansible_os_family in ['RedHat', 'Rocky']
+  yum:
+    name: nginx
+    state: present
+  when: ansible_os_family in ['RedHat', 'Rocky']
 
 - name: be sure nginx is configured
   template:
