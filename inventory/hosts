@@ -1,20 +1,18 @@
 ---
 all:
   hosts:
-    wallace:
-      ansible_host: 127.0.0.1
+    gromit.thespot.rocks:
   children:
-    debian:
+    all:
       hosts:
-        gromit.thespot.rocks:
+        wallace.thespot.rocks:
         preston.thespot.rocks:     
     redhat:
       hosts:
-        fedora.thespot.rocks:
-          ansible_host: 10.107.204.201
-        rocky.thespot.rocks:
-    timeservers:
+        preston.thespot.rocks:
+          ansible_host: 167.172.91.18
+    debian:
       hosts:
-        timeserver.thespot.rocks:
-          ansible_host: 10.107.204.72
+        wallace.thespot.rocks:
+          ansible_host: 143.198.59.186
           
