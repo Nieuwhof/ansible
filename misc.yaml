@@ -1,74 +1,74 @@
 ---
-- hosts: all
-  become: true
-  become_user: root
+  - hosts: all
+    become: true
+    become_user: root
 
-  tasks:
-   - name: Reboot a machine
-#     reboot:
-     
-- name: Install sudo Debian
-  apt:
-     name: sudo
-     state: present
-  when: ansible_os_family == 'Debian'
+    tasks:
+    - name: Reboot a machine
+  #     reboot:
+      
+    - name: Install sudo Debian
+      apt:
+        name: sudo
+        state: present
+      when: ansible_os_family == 'Debian'
 
-- name: Install sudo Redhat
-  yum:
-     name: sudo
-     state: present
-  when: ansible_os_family in ['RedHat', 'Rocky']
-
-
-- name: Allow 'sudo' group to have passwordless sudo
-  lineinfile:
-    dest: /etc/sudoers
-    state: present
-    regexp: '^%sudo'
-    line: '%sudo ALL=(ALL:ALL) NOPASSWD: ALL'
-    validate: 'visudo -cf %s'
+    - name: Install sudo Redhat
+      yum:
+        name: sudo
+        state: present
+      when: ansible_os_family in ['RedHat', 'Rocky']
 
 
-- name: Add sudoers users to sudo group
-  user:
-    name=ops
-    groups=sudo
-    append=yes
-    state=present
-    shell=/bin/bash
-    createhome=yes
-    password=B0sspasswd01!!
-    
-- name: Create a 2048-bit SSH key for user ops in ~ops/.ssh/id_rsa
-  ansible.builtin.user:
-    name: ops
-    generate_ssh_key: yes
-    ssh_key_bits: 2048
-    ssh_key_file: .ssh/id_rsa
-    
-- name: copy Opskey to /home/ops/.ssh/
-  copy:
-      src: /cloud/ansible/pubkey/Opskey/
-      dest: /home/ops/.ssh
-      remote_src: true
-  become: true
-  
-- name: install packages Debian
-  apt:
-      state: present
-      name:
-       - python3
-       - pip
-       - htop
-       - nano
-  when: ansible_os_family == 'Debian'       
+    - name: Allow 'sudo' group to have passwordless sudo
+      lineinfile:
+        dest: /etc/sudoers
+        state: present
+        regexp: '^%sudo'
+        line: '%sudo ALL=(ALL:ALL) NOPASSWD: ALL'
+        validate: 'visudo -cf %s'
 
-- name: install packages Redhat
-  yum:
-      state: present
-      name:
-       - python3
-       - pip
-       - htop
-       - nano
-  when: ansible_os_family in ['RedHat', 'Rocky']       
+
+    - name: Add sudoers users to sudo group
+      user:
+        name=ops
+        groups=sudo
+        append=yes
+        state=present
+        shell=/bin/bash
+        createhome=yes
+        password=B0sspasswd01!!
+        
+    - name: Create a 2048-bit SSH key for user ops in ~ops/.ssh/id_rsa
+      ansible.builtin.user:
+        name: ops
+        generate_ssh_key: yes
+        ssh_key_bits: 2048
+        ssh_key_file: .ssh/id_rsa
+        
+    - name: copy Opskey to /home/ops/.ssh/
+      copy:
+          src: /cloud/ansible/pubkey/Opskey/
+          dest: /home/ops/.ssh
+          remote_src: true
+      become: true
+      
+    - name: install packages Debian
+      apt:
+          state: present
+          name:
+          - python3
+          - pip
+          - htop
+          - nano
+      when: ansible_os_family == 'Debian'       
+
+    - name: install packages Redhat
+      yum:
+          state: present
+          name:
+          - python3
+          - pip
+          - htop
+          - nano
+      when: ansible_os_family in ['RedHat', 'Rocky']       
