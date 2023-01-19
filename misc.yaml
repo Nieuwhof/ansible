@@ -92,6 +92,6 @@
         name:
         - python3
         - pip
-        - htop
+        - top
         - nano
     when: ansible_os_family in ['RedHat', 'Rocky']       
