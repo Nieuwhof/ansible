@@ -75,8 +75,8 @@
       state: present
       key: '{{ item }}'
     with_file:
- #     - ~/.ssh/id_rsa.pub
-      - ~/.ssh/ops_id_rsa.pub
+      - /home/ops/.ssh/id_rsa.pub
+      - /home/ops/.ssh/ops_id_rsa.pub
 
 
 #  - name: copy Opskey to /home/ops/.ssh/
