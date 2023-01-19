@@ -24,7 +24,7 @@
 - name: Add sudoers users to sudo group
   user:
     name=ops
-    groups=sudo,wheel
+    groups=sudo
     append=yes
     state=present
     shell=/bin/bash
