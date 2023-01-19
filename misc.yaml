@@ -45,4 +45,12 @@
       remote_src: true
   become: true
   
-  
+- name: install packages
+  apt:
+      state: present
+      name:
+       - python3
+       - pip
+       - htop
+       - nano
+         
