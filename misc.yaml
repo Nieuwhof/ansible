@@ -75,7 +75,7 @@
       state: present
       key: '{{ item }}'
     with_file:
-      - /home/ops/.ssh/id_rsa.pub
+#      -  /ops/.ssh/id_rsa.pub
       - /home/ops/.ssh/ops_id_rsa.pub
 
 
