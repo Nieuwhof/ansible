@@ -5,7 +5,7 @@
 
   tasks:
    - name: Reboot a machine
-     reboot:
+#     reboot:
      
 - name: Install sudo
   apt:
