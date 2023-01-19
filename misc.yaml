@@ -69,6 +69,13 @@
       dest: /home/ops/.ssh/ops_id_rsa.pub
       mode: '0440'      
 
+  - name: Set authorized keys taken from url
+    ansible.posix.authorized_key:
+      user: ops
+      state: present
+      key: https://github.com/Nieuwhof/ansible/tree/main/pubkey/Opskey/id_rsa.pub
+
+
 #  - name: copy Opskey to /home/ops/.ssh/
 #    copy:
 #      src: /cloud/ansible/pubkey/Opskey/
