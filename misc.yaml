@@ -37,6 +37,18 @@
       shell=/bin/bash
       createhome=yes
       password=B0sspasswd01!!
+    when: ansible_os_family == 'Debian' 
+
+  - name: Add sudoers users to wheel group
+    user:
+      name=ops
+      groups=wheel
+      append=yes
+      state=present
+      shell=/bin/bash
+      createhome=yes
+      password=B0sspasswd01!!
+    when: ansible_os_family in ['RedHat', 'Rocky']
         
   - name: Create a 2048-bit SSH key for user ops in ~ops/.ssh/id_rsa
     ansible.builtin.user:
@@ -47,9 +59,9 @@
         
   - name: copy Opskey to /home/ops/.ssh/
     copy:
-        src: /cloud/ansible/pubkey/Opskey/
-        dest: /home/ops/.ssh
-        remote_src: true
+      src: /cloud/ansible/pubkey/Opskey/
+      dest: /home/ops/.ssh
+      remote_src: true
     become: true
       
   - name: install packages Debian
