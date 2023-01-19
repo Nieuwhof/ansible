@@ -3,7 +3,7 @@ all:
   hosts:
     gromit.thespot.rocks:
   children:
-    all:
+    stock:
       hosts:
         wallace.thespot.rocks:
         preston.thespot.rocks:     
