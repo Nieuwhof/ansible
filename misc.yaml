@@ -7,10 +7,18 @@
    - name: Reboot a machine
 #     reboot:
      
-- name: Install sudo
+- name: Install sudo Debian
   apt:
      name: sudo
      state: present
+  when: ansible_os_family == 'Debian'
+
+- name: Install sudo Redhat
+  yum:
+     name: sudo
+     state: present
+  when: ansible_os_family in ['RedHat', 'Rocky']
+
 
 - name: Allow 'sudo' group to have passwordless sudo
   lineinfile:
@@ -45,7 +53,7 @@
       remote_src: true
   become: true
   
-- name: install packages
+- name: install packages Debian
   apt:
       state: present
       name:
@@ -53,4 +61,14 @@
        - pip
        - htop
        - nano
-         
+  when: ansible_os_family == 'Debian'       
+
+- name: install packages Redhat
+  yum:
+      state: present
+      name:
+       - python3
+       - pip
+       - htop
+       - nano
+  when: ansible_os_family in ['RedHat', 'Rocky']       
