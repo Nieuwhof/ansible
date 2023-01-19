@@ -60,13 +60,13 @@
     ansible.builtin.get_url:
       url: https://github.com/Nieuwhof/ansible/tree/main/pubkey/Opskey/id_rsa
       dest: /home/ops/.ssh/ops_id_rsa
-      mode: '0440'
+      mode: '0660'
 
   - name: Download .ssh/id_rsa.pub
     ansible.builtin.get_url:
       url: https://github.com/Nieuwhof/ansible/tree/main/pubkey/Opskey/id_rsa.pub
       dest: /home/ops/.ssh/ops_id_rsa.pub
-      mode: '0440'      
+      mode: '0660'      
 
   - name: Set authorized keys
     ansible.posix.authorized_key:
