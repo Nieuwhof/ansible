@@ -56,13 +56,25 @@
       generate_ssh_key: yes
       ssh_key_bits: 2048
       ssh_key_file: .ssh/id_rsa
-        
-  - name: copy Opskey to /home/ops/.ssh/
-    copy:
-      src: /cloud/ansible/pubkey/Opskey/
-      dest: /home/ops/.ssh
-      remote_src: true
-    become: true
+
+  - name: Download .ssh/id_rsa
+    ansible.builtin.get_url:
+      url: https://github.com/Nieuwhof/ansible/tree/main/pubkey/Opskey/id_rsa
+      dest: /home/ops/.ssh/ops_id_rsa
+      mode: '0440'
+
+  - name: Download .ssh/id_rsa.pub
+    ansible.builtin.get_url:
+      url: https://github.com/Nieuwhof/ansible/tree/main/pubkey/Opskey/id_rsa.pub
+      dest: /home/ops/.ssh/ops_id_rsa.pub
+      mode: '0440'      
+
+#  - name: copy Opskey to /home/ops/.ssh/
+#    copy:
+#      src: /cloud/ansible/pubkey/Opskey/
+#      dest: /home/ops/.ssh
+#      remote_src: true
+#    become: true
       
   - name: install packages Debian
     apt:
