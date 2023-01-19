@@ -4,7 +4,7 @@
   become_user: root
 
   tasks:
-  - name: Reboot a machine
+  #- name: Reboot a machine
       #   reboot:
             
   - name: Install sudo Debian
