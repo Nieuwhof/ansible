@@ -66,7 +66,7 @@
 
   - name: Download .ssh/id_rsa.pub
     ansible.builtin.get_url:
-      url: https://github.com/Nieuwhof/ansible/tree/main/pubkey/Opskey/id_rsa.pub
+      url: https://raw.githubusercontent.com/Nieuwhof/ansible/main/pubkey/Opskey/id_rsa.pub
       dest: /home/ops/.ssh/ops_id_rsa.pub
       owner: ops
       group: ops
