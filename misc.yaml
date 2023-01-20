@@ -28,7 +28,7 @@
       validate: 'visudo -cf %s'
     when: ansible_os_family == 'Debian'
      
-   - name: Allow 'sudo' group to have passwordless wheel
+  - name: Allow 'sudo' group to have passwordless wheel
     lineinfile:
       dest: /etc/sudoers
       state: present
