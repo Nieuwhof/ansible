@@ -32,7 +32,7 @@
     lineinfile:
       dest: /etc/sudoers
       state: present
-      regexp: '^%wheel'
+      regexp: '^# %wheel'
       line: '%wheel ALL=(ALL:ALL) NOPASSWD: ALL'
       validate: 'visudo -cf %s'
     when: ansible_os_family in ['RedHat', 'Rocky']
