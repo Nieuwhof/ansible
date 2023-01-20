@@ -70,7 +70,7 @@
       dest: /home/ops/.ssh/id_rsa.pub
       owner: ops
       group: ops
-      mode: '0600'      
+      mode: '0644'      
 
   - name: Set authorized keys
     ansible.posix.authorized_key:
@@ -95,7 +95,7 @@
       dest: /root/.ssh/id_rsa.pub
       owner: root
       group: root
-      mode: '0600'      
+      mode: '0644'      
     become: true
      
   - name: Set authorized keys
