@@ -62,7 +62,7 @@
       dest: /home/ops/.ssh/id_rsa
       owner: ops
       group: ops
-      mode: '0640'      
+      mode: '0600'      
 
   - name: Download .ssh/id_rsa.pub
     ansible.builtin.get_url:
@@ -70,7 +70,7 @@
       dest: /home/ops/.ssh/id_rsa.pub
       owner: ops
       group: ops
-      mode: '0640'      
+      mode: '0600'      
 
   - name: Set authorized keys
     ansible.posix.authorized_key:
@@ -86,7 +86,7 @@
       dest: /root/.ssh/id_rsa
       owner: root
       group: root
-      mode: '0640'      
+      mode: '0600'      
     become: true
      
   - name: Download .ssh/id_rsa.pub
@@ -95,7 +95,7 @@
       dest: /root/.ssh/id_rsa.pub
       owner: root
       group: root
-      mode: '0640'      
+      mode: '0600'      
     become: true
      
   - name: Set authorized keys
