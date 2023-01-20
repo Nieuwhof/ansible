@@ -42,7 +42,7 @@
       ssh_key_file=.ssh/id_rsa      
     when: ansible_os_family == 'Debian' 
 
-  - name: Add sudoers users to wheel group
+  - name: Add sudoers users to wheel group {{ set_password }}
     user:
       name=ops
       groups=wheel
