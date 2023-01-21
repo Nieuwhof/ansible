@@ -3,16 +3,14 @@ all:
   hosts:
     gromit.thespot.rocks:
   children:
-    stock:
-      hosts:
-        wallace.thespot.rocks:
-        preston.thespot.rocks:     
     redhat:
       hosts:
         preston.thespot.rocks:
           ansible_host: 167.172.91.18
+        shaun.thespot.rocks:    
     debian:
       hosts:
         wallace.thespot.rocks:
           ansible_host: 143.198.59.186
-          
+  vars:
+  set_password: B0sspasswd01!!        
