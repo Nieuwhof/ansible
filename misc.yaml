@@ -7,7 +7,7 @@
   #- name: Reboot a machine
       #   reboot:
             
-  - name: Install sudo "{{ set_password }}" Debian
+  - name: Install sudo "{{ set_pass }}" Debian
     apt:
       name: sudo
       state: present
