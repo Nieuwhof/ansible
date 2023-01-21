@@ -6,7 +6,7 @@ all:
     wallace.thespot.rocks:
     shaun.thespot.rocks:
   vars:
-    set_pass: "Bertus"
+    set_pass: B0sspasswd01!!
   children:
     redhat:
       hosts:
