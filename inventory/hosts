@@ -12,6 +12,6 @@ all:
       hosts:
         wallace.thespot.rocks:
           ansible_host: 143.198.59.186
-          set_password: B0sspassword01!!
-  vars:
-  set_password: B0sspasswd01!!        
+ #         set_password: B0sspassword01!!
+vars:
+set_password: B0sspasswd01!!        
