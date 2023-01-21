@@ -4,9 +4,7 @@ all:
     gromit.thespot.rocks:
     preston.thespot.rocks:
     wallace.thespot.rocks:
-    shaun.thespot.rocks:
-  vars:
-    set_pass: B0sspasswd01!!
+    shaun.thespot.rocks:  
   children:
     redhat:
       hosts:
@@ -17,3 +15,5 @@ all:
       hosts:
         wallace.thespot.rocks:
           ansible_host: 143.198.59.186
+  vars:
+    set_pass: B0sspasswd01!!
