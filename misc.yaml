@@ -130,7 +130,21 @@
       regexp: '^#PermitRootLogin yes'
       line: 'PermitRootLogin yes'
 
-#####
+  - name: PasswordAuthentication yes 
+    lineinfile:
+      dest: /etc/ssh/sshd_config
+      state: present
+      regexp: '^#PasswordAuthentication yes'
+      line: 'PasswordAuthentication yes'
+
+  - name: PasswordAuthentication no
+    lineinfile:
+      dest: /etc/ssh/sshd_config
+      state: present
+      regexp: '^PasswordAuthentication no'
+      line: 'PasswordAuthentication yes'
+
+##### PasswordAuthentication yes
       
   - name: install packages Debian
     apt:
