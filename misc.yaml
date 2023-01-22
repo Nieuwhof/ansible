@@ -126,7 +126,12 @@
       regexp: '^search'
       line: 'search {{set_fqdn}}'
 
-
+  - name: Allow PermitRootLogin yes 
+    lineinfile:
+      dest: /etc/ssh/sshd_config
+      state: present
+      regexp: '^#PermitRootLogin yes'
+      line: 'PermitRootLogin yes'
 
 #####
       
