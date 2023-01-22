@@ -3,9 +3,7 @@
   become: true
   become_user: root
 
-  tasks:
-  #- name: Reboot a machine
-      #   reboot:
+  tasks: 
             
   - name: Install sudo {{ set_pass }} Debian
     apt:
@@ -86,8 +84,7 @@
       user: ops
       state: present
       manage_dir: yes
-      key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCvst/FJr+7BJX98grW3DyXqwwJfb5p5ZyVYdlV0vuGdG4nPg2fos0zT+nx14r1k4Xv+zAVYSME4Zl30hl1UFeKf+bfFidi1/RkyYuy6/FsOnJYkf4LjUOC8c0in5SQrMBS//AyuRQOQWIBt7yjLfHMafSdNUbNIZq34/AmpQwMETWbjeSi9QBxhyRL0PVl22ltWyh31wtXiIaAivllJtoxQuWBjoTwqPaBX8qA73zXNvLypvEKjvBFi7hRW5BHOYyOAztFrk7cYTv+9hqJi0LhUe2YVeihHtZUzzlHgxxrsYjXI217gpJHlijkClv7va0BocWrC5P+hHVKUuqvvn3ZDks3YJKFsy8+Uu1a0f6UVELeVUHvh0l8aRQmP9/rIiWzGcgIOLRKhR0nzdWBK/xydhNNYAMsHz4U+mfFQfLqrC28PCkEjbZlmsTJDX9vYDW36wbON5PsftrTzWKBROEkAlKElgqQ2TB8xFJvWHbgUht4rtwssQjb9dRVpTg/k7E= ops@wallace"
-####
+      key: "{{set_sshkey}}"
 
   - name: Download .ssh/id_rsa
     ansible.builtin.get_url:
@@ -112,7 +109,7 @@
       user: root
       state: present
       manage_dir: yes
-      key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCvst/FJr+7BJX98grW3DyXqwwJfb5p5ZyVYdlV0vuGdG4nPg2fos0zT+nx14r1k4Xv+zAVYSME4Zl30hl1UFeKf+bfFidi1/RkyYuy6/FsOnJYkf4LjUOC8c0in5SQrMBS//AyuRQOQWIBt7yjLfHMafSdNUbNIZq34/AmpQwMETWbjeSi9QBxhyRL0PVl22ltWyh31wtXiIaAivllJtoxQuWBjoTwqPaBX8qA73zXNvLypvEKjvBFi7hRW5BHOYyOAztFrk7cYTv+9hqJi0LhUe2YVeihHtZUzzlHgxxrsYjXI217gpJHlijkClv7va0BocWrC5P+hHVKUuqvvn3ZDks3YJKFsy8+Uu1a0f6UVELeVUHvh0l8aRQmP9/rIiWzGcgIOLRKhR0nzdWBK/xydhNNYAMsHz4U+mfFQfLqrC28PCkEjbZlmsTJDX9vYDW36wbON5PsftrTzWKBROEkAlKElgqQ2TB8xFJvWHbgUht4rtwssQjb9dRVpTg/k7E= ops@wallace"
+      key: "{{set_sshkey}}"
     become: true
      
   - name: Set a hostname
@@ -155,3 +152,6 @@
         - nano
         - golang
     when: ansible_os_family in ['RedHat', 'Rocky']       
+
+  - name: Reboot a machine
+    reboot:
