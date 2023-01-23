@@ -2,22 +2,19 @@
 all:
   hosts:
     gromit.thespot.rocks:
-    preston.thespot.rocks:
-    wallace.thespot.rocks:
-    shaun.thespot.rocks:  
   children:
     redhat:
       hosts:
         preston.thespot.rocks:
-          ansible_host: 167.172.91.18
           set_hostname: preston
         shaun.thespot.rocks:
-          set_hostname: shaun    
+          set_hostname: shaun
     debian:
       hosts:
         wallace.thespot.rocks:
-          ansible_host: 143.198.59.186
           set_hostname:  wallace
+        piella.thespot.rocks:
+          set_hostname: piella
   vars:
     set_pass: B0sspasswd!!
     set_fqdn: thespot.rocks
