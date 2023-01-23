@@ -42,6 +42,7 @@
       append=yes
       state=present
       shell=/bin/bash
+      update_password: on_create
       createhome=yes
       password='{{set_pass}}'
       generate_ssh_key=yes
@@ -56,6 +57,7 @@
       append=yes
       state=present
       shell=/bin/bash
+      update_password: on_create
       createhome=yes
       password='{{set_pass}}'
       generate_ssh_key=yes
