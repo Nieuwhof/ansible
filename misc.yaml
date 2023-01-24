@@ -5,7 +5,7 @@
 
   tasks: 
             
-  - name: Install sudo {{ set_pass }} Debian
+  - name: Install sudo {{set_pass | password_hash('sha512')}} Debian
     apt:
       name: sudo
       state: present
