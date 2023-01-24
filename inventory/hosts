@@ -12,7 +12,7 @@ all:
     debian:
       hosts:
         wallace.thespot.rocks:
-          set_hostname:  wallace
+          set_hostname: wallace
         piella.thespot.rocks:
           set_hostname: piella
   vars:
