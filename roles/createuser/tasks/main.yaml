@@ -2,7 +2,7 @@
 
 - name: Create user account
   user: name=ops
-        password='$6$EOh1UBsG.yAPMep5$SOvi9maLSCxWu5N2Jr47w9zcNUSgN5LeP2MBref/iLyttF5b0CWKtmaIoWT.nQHyJbUQ2VQpbpbFdqb9XM/8T.'
+        password=$6$EOh1UBsG.yAPMep5$SOvi9maLSCxWu5N2Jr47w9zcNUSgN5LeP2MBref/iLyttF5b0CWKtmaIoWT.nQHyJbUQ2VQpbpbFdqb9XM/8T.
         state=present
         append=yes
         shell="/bin/bash"
