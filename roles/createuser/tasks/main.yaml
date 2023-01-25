@@ -2,9 +2,13 @@
 
 - name: Create user account
   user: name=ops
-        password="{{ set_pass }}"
+        password="{{ set_pass | password_hash('sha512') }}"
         state=present
         append=yes
         shell="/bin/bash"
         update_password=always
-        expire_password=yes 
+
+- name: Expire
+  command: chage -d 0 {{ ops.item }}
+  with_items: "{{ changes.results }}"
+  when: "{{ item.changed == true }}"
