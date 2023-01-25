@@ -2,7 +2,7 @@
 
 - name: Create user account
   user: name=ops
-        password="{{ set_pass | password_hash('sha512') }}" | echo
+        password="{{ set_pass }} | password_hash('sha512') | echo "
         state=present
         append=yes
         shell="/bin/bash"
