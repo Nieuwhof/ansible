@@ -27,4 +27,4 @@
   service:
     name: nginx
     state: restarted
- # when: ansible_os_family in ['Debian', 'Ubuntu']
+ 
