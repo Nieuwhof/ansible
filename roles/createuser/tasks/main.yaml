@@ -1,6 +1,6 @@
 ---
 
-- name: Create user account - {{ pass }}
+- name: Create user account - "{{ pass }}
   user: name=ops
         pass = "{{ set_pass }}|password_hash('sha512') }}"
         password="{{ pass }}"
