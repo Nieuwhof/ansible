@@ -1,16 +1,8 @@
 ---
 
-- name: Generate password for new user
-  shell: makepasswd --chars=20
-  register: user_password
-
-- name: Generate encrypted password
-  shell: mkpasswd --method=SHA-512 {{ user_password.stdout }}
-  register: encrypted_user_password
-
 - name: Create user account
   user: name=ops
-        password={{ encrypted_user_password.stdout }}
+        password={{ set_pass | password_hash('sha512') }}
         state=present
         append=yes
         shell="/bin/bash"
@@ -23,5 +15,5 @@
   when: user_created.changed
 
 - name: User created
-  debug: msg="Password for ops is {{ user_password.stdout }}"
+  debug: msg="Password for ops is {{ set_pass.stdout }}"
   when: user_created.changed
