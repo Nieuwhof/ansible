@@ -8,6 +8,6 @@
         shell="/bin/bash"
         update_password=always
        
-- name: debug
-  debug:
-    msg: "{{ password }}"
+- name: Print
+message debug:
+msg: "This is machine is {{ ansible_hostname }} with IP {{ ansible_default_ipv4.address }}"
