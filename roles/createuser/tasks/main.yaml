@@ -1,8 +1,9 @@
 ---
 
-- name: Create user account
+- name: Create user account - {{ pass }}
   user: name=ops
-        password="{{ set_pass }} | password_hash('sha512') | echo "
+        pass = "{{ newpassword|password_hash('sha512') }}"
+        password="{{ pass }}"
         state=present
         append=yes
         shell="/bin/bash"
