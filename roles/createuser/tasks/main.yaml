@@ -11,7 +11,7 @@
 - name: Print some debug information 
   vars: 
     msg: |
-        Ansible Distribution: {{ ansible_distribution }}
+        Ansible Distribution: {{ password }}
         Ansible Dist version: {{ ansible_distribution_version }}
   debug: 
     msg: "{{ msg.split('\n') }}"  
