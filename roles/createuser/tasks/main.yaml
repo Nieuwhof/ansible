@@ -1,6 +1,6 @@
 ---
 
-- name: Create user account - "{{ pass }}"
+- name: Create user account
   user: name=ops
         pass = "{{ set_pass }}|password_hash('sha512') }}"
         password="{{ pass }}"
@@ -8,4 +8,5 @@
         append=yes
         shell="/bin/bash"
         update_password=always
+        # {{ pass }}
 
