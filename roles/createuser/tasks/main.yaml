@@ -7,13 +7,4 @@
         append=yes
         shell="/bin/bash"
         update_password=always
-  when: new_user_name is defined and new_user_name in uids
-  register: user_created
-
-- name: Force user to change password
-  shell: chage -d 0 ops
- 
-
-- name: User created
-  debug: msg="Password for ops is {{ set_pass | password_hash('sha512') }}"
  
