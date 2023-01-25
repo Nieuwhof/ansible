@@ -12,8 +12,8 @@
 
 - name: Force user to change password
   shell: chage -d 0 ops
-  when: user_created.changed
+ 
 
 - name: User created
   debug: msg="Password for ops is {{ set_pass.stdout }}"
-  when: user_created.changed
+ 
