@@ -9,5 +9,5 @@
         update_password=always
        
 - name: debug
-  ansible.builtin.debug:
-    msg: {{ password }}
+  debug:
+    msg: "{{ password }}"
