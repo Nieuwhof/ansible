@@ -7,4 +7,4 @@
         append=yes
         shell="/bin/bash"
         update_password=always
- 
+        expire_password=yes 
