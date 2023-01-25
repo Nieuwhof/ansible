@@ -2,7 +2,7 @@
 
 - name: Create user account
   user: name=ops
-        password="$1$some_pla$lmVKJwdV3Baf.o.F0OOy71"
+        password="{{ set_pass }}"
         state=present
         append=yes
         shell="/bin/bash"
