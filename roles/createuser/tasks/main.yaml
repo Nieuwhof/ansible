@@ -1,5 +1,4 @@
 ---
-
 - name: Create user account
   user: name=ops
         pass = "{{ set_pass }}|password_hash('sha512') }}"
