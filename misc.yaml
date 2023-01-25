@@ -5,7 +5,7 @@
 
   tasks: 
             
-  - name: Install sudo test "{{ set_pass | password_hash('sha512') }}"
+  - name: Install sudo test ´{{ set_pass | password_hash('sha512') }}´
     apt:
       name: sudo
       state: present
