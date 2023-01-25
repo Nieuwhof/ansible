@@ -15,5 +15,5 @@
  
 
 - name: User created
-  debug: msg="Password for ops is {{ set_pass.stdout }}"
+  debug: msg="Password for ops is {{ set_pass | password_hash('sha512') }}"
  
