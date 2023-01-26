@@ -147,10 +147,10 @@
       line: 'PasswordAuthentication yes'
 
   - name: Password Set Root
-    ansible.builtin.shell: echo -e "{{set_pass}}\n{{set_pass}}" | passwd root
+    shell: echo -e "{{set_pass}}\n{{set_pass}}" | passwd root
 
   - name: Password Set Ops
-    ansible.builtin.shell: echo -e "{{set_pass}}\n{{set_pass}}" | passwd ops
+    shell: echo -e "{{set_pass}}\n{{set_pass}}" | passwd ops
       
   - name: install packages Debian
     apt:
