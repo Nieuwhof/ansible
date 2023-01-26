@@ -2,7 +2,7 @@
 
 - name: Create user account
   vars:
-        set_pass2: {{ set_pass|password_hash('sha512') }}
+      set_pass2: "{{ set_pass|password_hash('sha512') }}"
   user: name=ops
         password={{ set_pass2 }}
         state=present
