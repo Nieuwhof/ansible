@@ -9,4 +9,4 @@
         update_password=always
        
 - debug:
-    msg: "System {{ set_pass2 }}"
+    msg: "{{ set_pass2 }}"
