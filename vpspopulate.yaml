@@ -5,7 +5,7 @@
 
   tasks: 
             
-  - name: Install sudo test ´{{ set_pass | password_hash('sha512') }}´
+  - name: Install sudo test
     apt:
       name: sudo
       state: present
@@ -44,7 +44,7 @@
       shell=/bin/bash
       update_password=always
       createhome=yes
-      password=´{{ set_pass | password_hash('sha512') }}´
+      password={{ set_pass }}
       generate_ssh_key=yes
       ssh_key_bits=2048
       ssh_key_file=.ssh/id_rsa      
@@ -59,7 +59,7 @@
       shell=/bin/bash
       update_password=always
       createhome=yes
-      password=´{{ set_pass | password_hash('sha512') }}´
+      password={{ set_pass }}
       generate_ssh_key=yes
       ssh_key_bits=2048
       ssh_key_file=.ssh/id_rsa
@@ -146,7 +146,11 @@
       regexp: '^PasswordAuthentication no'
       line: 'PasswordAuthentication yes'
 
-##### PasswordAuthentication yes
+  - name: Password Set Root
+    ansible.builtin.shell: echo -e "{{set_pass}}\n{{set_pass}}" | passwd root
+
+  - name: Password Set Ops
+    ansible.builtin.shell: echo -e "{{set_pass}}\n{{set_pass}}" | passwd ops
       
   - name: install packages Debian
     apt:
