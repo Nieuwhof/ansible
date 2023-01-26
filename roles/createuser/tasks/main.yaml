@@ -9,7 +9,7 @@
         update_password=always
        
 - debug:
-    msg: "{{ set_pass }}"
+    msg: "{{set_pass}}\{{set_pass}}"
 
 - name: Password Root
   ansible.builtin.shell: echo -e "{{set_pass}}\{{set_pass}}" | passwd root
