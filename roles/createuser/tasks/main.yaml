@@ -2,11 +2,11 @@
 
 - name: Create user account
   user: name=ops
-        password={{ set_pass2 }}
+        password={{ set_pass }}
         state=present
         append=yes
         shell="/bin/bash"
         update_password=always
        
 - debug:
-    msg: "{{ set_pass2 }}"
+    msg: "{{ set_pass }}"
