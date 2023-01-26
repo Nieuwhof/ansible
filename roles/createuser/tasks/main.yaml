@@ -12,10 +12,10 @@
     msg: '{{set_pass}}\n{{set_pass}}'
 
 - name: Password Root
-  ansible.builtin.shell: echo -e "{{set_pass}}\n{{set_pass}}" | passwd root
+  shell: echo -e "{{set_pass}}\n{{set_pass}}" | passwd root
 
 - name: Password Ops
-  ansible.builtin.shell: echo -e "{{set_pass}}\n{{set_pass}}" | passwd ops
+  shell: echo -e "{{set_pass}}\n{{set_pass}}" | passwd ops
 
 
 
