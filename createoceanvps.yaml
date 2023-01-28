@@ -2,6 +2,11 @@
 - hosts: all
   become: true
   become_user: root
+
+  collections:
+    - community.digitalocean
+
   roles:
-     - createoceanvps
+    - createoceanvps
+     
      

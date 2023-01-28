@@ -7,6 +7,7 @@
     size_id: 1gb
     region_id: sgp1
     image_id: ubuntu-20-04-x64
+    ssh_keys: "{{set_sshkey}}"
   register: set_droplet
 
 #- name: Create a corresponding domain
