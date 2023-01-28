@@ -1,0 +1,4 @@
+ collections:
+    - name: community.digitalocean
+      source: https://galaxy.ansible.com
+      
