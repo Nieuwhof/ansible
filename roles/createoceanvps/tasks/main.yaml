@@ -9,10 +9,18 @@
     image_id: ubuntu-20-04-x64
   register: set_droplet
 
-- name: Create a corresponding domain
-  community.digitalocean.digital_ocean_domain:
-    state: present
-    name: "{{ set_droplet.droplet.name }}.{{set_fqdn}}"
-    ip: "{{ set_droplet.droplet.ip_address }}"
+#- name: Create a corresponding domain
+#  community.digitalocean.digital_ocean_domain:
+#    state: present
+#    name: "{{ set_droplet.droplet.name }}.{{set_fqdn}}"
+#    ip: "{{ set_droplet.droplet.ip_address }}"
 
- 
+- name: Create A record for www
+  community.digitalocean.digital_ocean_domain_record:
+    state: present
+    oauth_token: "{{ lookup('ansible.builtin.env', '{{set_oceantoken}}') }}"
+    domain: "{{ set_hostname }}.{{set_fqdn}}"
+    type: A
+    name: www
+    data: "{{ set_droplet.droplet.ip_address }}"
+
