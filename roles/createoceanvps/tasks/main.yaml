@@ -1,3 +1,18 @@
 ---
-- name: Install Nginx if 'Debian'
+
+- name: Create a droplet
+  community.digitalocean.digital_ocean:
+    state: present
+    name: "{{ set_hostname }}.{{set_fqdn}}"
+    size_id: 1gb
+    region_id: sgp1
+    image_id: ubuntu-20-04-x64
+  register: set_droplet
+
+- name: Create a corresponding domain
+  community.digitalocean.digital_ocean_domain:
+    state: present
+    name: "{{ set_droplet.droplet.name }}.{{set_fqdn}}"
+    ip: "{{ set_droplet.droplet.ip_address }}"
+
  
