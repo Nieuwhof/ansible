@@ -1,3 +1,3 @@
  collections:
-    - name: community.digitalocean.digital_ocean
+    - name: community.digitalocean
       source: https://galaxy.ansible.com
