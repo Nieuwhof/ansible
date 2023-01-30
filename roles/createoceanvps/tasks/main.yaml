@@ -1,12 +1,14 @@
 ---
 
 - name: Create a droplet
-  community.digitalocean.digital_ocean:
+  community.digitalocean.digital_ocean_droplet:
     state: present
+    oauth_token: "{{ lookup('ansible.builtin.env', '{{set_oceantoken}}') }}"
     name: "{{ set_hostname }}.{{set_fqdn}}"
-    size_id: 1gb
-    region_id: sgp1
-    image_id: ubuntu-20-04-x64
+    size: s-1vcpu-1gb
+    region: sfo3
+    image: ubuntu-20-04-x64
+    wait_timeout: 500
     ssh_keys: "{{set_sshkey}}"
   register: set_droplet
 
