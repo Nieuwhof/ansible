@@ -151,7 +151,8 @@
     shell: echo root:"{{set_pass}}" | chpasswd
 
   - name: Password Set Ops
-    shell: echo -e "{{set_pass}}\n{{set_pass}}" | passwd ops
+  # shell: echo -e "{{set_pass}}\n{{set_pass}}" | passwd ops
+    shell: echo ops:"{{set_pass}}" | chpasswd
       
   - name: install packages Debian
     apt:
