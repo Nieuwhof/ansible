@@ -1,22 +1,34 @@
 ---
 
-- name: Create a droplet
-  community.digitalocean.digital_ocean_droplet:
-    state: present
-    api_token: "{{ set_token }}"
-    name: "{{ set_hostname }}.{{set_fqdn}}"
-    size: s-1vcpu-1gb
-    region: sfo3
-    image: ubuntu-20-04-x64
-    wait_timeout: 500
-    ssh_keys: "{{set_sshkey}}"
-  register: set_droplet
-
-#- name: Create a corresponding domain
-#  community.digitalocean.digital_ocean_domain:
+#- name: Create a droplet
+#  community.digitalocean.digital_ocean_droplet:
 #    state: present
-#    name: "{{ set_droplet.droplet.name }}.{{set_fqdn}}"
-#    ip: "{{ set_droplet.droplet.ip_address }}"
+#    api_token: "{{ set_token }}"
+#    name: "{{ set_hostname }}.{{set_fqdn}}"
+#    size: s-1vcpu-1gb
+#    region: sfo3
+#    image: ubuntu-20-04-x64
+#    wait_timeout: 500
+#    ssh_keys: "{{set_sshkey}}"
+#  register: set_droplet
+- name: Create a new Droplet
+  community.digitalocean.digital_ocean:
+    state: present
+    oauth_token: "{{ lookup('ansible.builtin.env', 'set_token') }}"
+    command: droplet
+    name: mydroplet
+    size_id: 2gb
+    region_id: ams2
+    image_id: fedora-19-x64
+    wait_timeout: 500
+  register: my_droplet
+
+- debug:
+    msg: "ID is {{ my_droplet.droplet.id }}"
+
+- debug:
+    msg: "IP is {{ my_droplet.droplet.ip_address }}"
+
 
 - name: Create A record for www
   community.digitalocean.digital_ocean_domain_record:
