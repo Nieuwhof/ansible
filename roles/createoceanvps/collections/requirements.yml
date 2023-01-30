@@ -1,4 +1,0 @@
- collections:
-    - name: community
-      version: "*"
-      source: https://galaxy.ansible.com
