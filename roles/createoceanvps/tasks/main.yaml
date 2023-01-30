@@ -2,7 +2,6 @@
 
 - name: Create a droplet
   community.digitalocean.digital_ocean_droplet:
-  become: yes
     state: present
     api_token: "{{ set_token }}"
     name: "{{ set_hostname }}.{{set_fqdn}}"
