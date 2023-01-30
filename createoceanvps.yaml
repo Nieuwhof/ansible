@@ -4,6 +4,9 @@
   connection: local
   become: true
   become_user: root
+  
+  vars:
+  do_token: dop_v1_2b2ddc913d5138e6fc170eb4c23822a45af30c72bab9cda2cb38a4ea67663cc9
 
   roles:
     - createoceanvps
