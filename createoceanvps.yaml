@@ -2,11 +2,7 @@
 - hosts: all
   gather_facts: false
   connection: local
-  become=True
-  become_method=sudo
-  become_user=root
-  become_ask_pass=False
-
+  
   roles:
     - createoceanvps
      
