@@ -2,10 +2,10 @@
 - hosts: all
   gather_facts: false
   connection: local
-  become: true
-  become_user: root
-  become_method: "su"
-  become_exe: 'sudo -p "Password: " su -'
+  become=True
+  become_method=sudo
+  become_user=root
+  become_ask_pass=False
 
   roles:
     - createoceanvps
