@@ -3,5 +3,5 @@ collections:
     version: 4.8.5
     source: https://galaxy.ansible.com
   - name: community.digitalocean
-    version: latest
+    version: 1.23.0
     source: https://galaxy.ansible.com
