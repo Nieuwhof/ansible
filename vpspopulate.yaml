@@ -147,7 +147,8 @@
       line: 'PasswordAuthentication yes'
 
   - name: Password Set Root
-    shell: echo -e '{{set_pass}}\n{{set_pass}}' | passwd root
+   # shell: echo -e '{{set_pass}}\n{{set_pass}}' | passwd root
+    shell: echo "{{set_pass}} | passwd --stdin root
 
   - name: Password Set Ops
     shell: echo -e "{{set_pass}}\n{{set_pass}}" | passwd ops
