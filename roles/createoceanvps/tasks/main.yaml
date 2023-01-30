@@ -22,6 +22,7 @@
     image_id: fedora-19-x64
     wait_timeout: 500
   register: my_droplet
+  delegate_to: localhost
 
 - debug:
     msg: "ID is {{ my_droplet.droplet.id }}"
