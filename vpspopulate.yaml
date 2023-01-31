@@ -12,7 +12,10 @@
   roles:
     - blackstar257.resolv
  
-  tasks:       
+  tasks: 
+  - name: install stuff
+    shell: ansible-galaxy install blackstar257.resolv
+    
   - name: Install sudo test
     apt:
       name: sudo
