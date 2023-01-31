@@ -4,9 +4,7 @@
   become_user: root
  
   tasks: 
-  - name: install stuff
-    shell: ansible-galaxy install blackstar257.resolv
-    
+  
   - name: Install sudo test
     apt:
       name: sudo
