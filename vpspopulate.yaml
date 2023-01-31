@@ -3,32 +3,19 @@
   become: true
   become_user: root
 
-  roles:
-  - role: "ahuffman.resolv"
-    resolv_nameservers:
-        - "8.8.8.8"
-        - "8.8.4.4"
-    resolv_domain: "foo.org"
-    resolv_search:
-        - "thespot.rocks"
-        - "foobar.com"
-    resolv_options:
-        - "timeout:2"
-        - "rotate"
-
   tasks:
   - name: "Configure resolv.conf"
     include_role:
-        name: "ahuffman.resolv"
+      name: "ahuffman.resolv"
     vars:
-        resolv_nameservers:
-          - "8.8.8.8"
-          - "8.8.4.4"
-        resolv_domain: "foo.org"
-        resolv_search:
-          - "foo.bar"
+      resolv_nameservers:
+         - "8.8.8.8"
+         - "8.8.4.4"
+      resolv_domain: "foo.org"
+      resolv_search:
+          - "thespot.rocks"
           - "foobar.com"
-        resolv_options:
+      resolv_options:
           - "timeout:2"
           - "rotate"
 
