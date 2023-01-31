@@ -1,0 +1,10 @@
+
+- hosts: all
+  vars:
+    resolv_conf_nameservers:
+      - 8.8.4.4
+      - 8.8.8.8
+    resolv_conf_search_domains:
+      - google.com
+  roles:
+    - blackstar257.resolv
