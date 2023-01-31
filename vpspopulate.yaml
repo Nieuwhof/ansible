@@ -118,28 +118,12 @@
     ansible.builtin.hostname:
       name: '{{set_hostname}}'
 
-  - name: Copy a new "/etc/resolv.conf.bak"
-    ansible.builtin.copy:
-      src: /etc/resolv.conf
-      dest: /etc/resolve.conf.bak
-      remote_src: yes
-      owner: root
-      group: root
-      mode: '0644'
-      backup: yes
-
   - name: remove link "resolv.conf
+    shell: cp /etc/resolv.conf /etc/resolv.conf.bak
+  - name: remove link "resolv.conf  
     shell: rm /etc/resolv.conf
-
-  - name: Copy a new "/etc/resolv.conf"
-    ansible.builtin.copy:
-      src: /etc/resolv.conf.bak
-      dest: /etc/resolv.conf
-      remote_src: yes
-      owner: root
-      group: root
-      mode: '0644'
-      backup: yes
+  - name: remove link "resolv.conf
+    shell: cp /etc/resolv.conf.bak /etc/resolv.conf
   
   - name: Allow 'search {{set_fqdn}} fqdn'
     ansible.builtin.replace:
