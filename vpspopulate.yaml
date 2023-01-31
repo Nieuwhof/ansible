@@ -124,15 +124,25 @@
   #    state: present
   #    regexp: '"^search"'
   #    line: '"search {{ set_fqdn }}"'
+- name: "Configure resolv.conf"
+  include_role:
+    name: "ahuffman.resolv"
+  vars:
+    resolv_nameservers:
+          - "8.8.8.8"
+          - "8.8.4.4"
+    resolv_domain: "thespot.rocks"
+    resolv_search:
+          - "thespot.rocks"
+    resolv_options:
+          - "timeout:2"
+          - "rotate"
 
-  - name: Allow 'search {{set_fqdn}} fqdn'
-    ansible.builtin.replace:
-      path: /etc/resolv.conf
-      regexp: '^search'
-      replace: 'search {{ set_fqdn }}'
-
-  - name: Change attr /etc/resolv.conf
-    shell: chattr +i /etc/resolv.conf
+ # - name: Allow 'search {{set_fqdn}} fqdn'
+ #   ansible.builtin.replace:
+ #     path: /etc/resolv.conf
+ #     regexp: '^search'
+ #     replace: 'search {{ set_fqdn }}'
 
   - name: Allow PermitRootLogin yes 
     lineinfile:
