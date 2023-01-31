@@ -1,2 +1,2 @@
 
-- src: git+https://github.com/dginhoux/ansible_role.resolv.git
+- src: git+https://github.com/alxshr/ansible-resolv.git
