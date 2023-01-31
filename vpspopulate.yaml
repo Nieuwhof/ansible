@@ -3,6 +3,15 @@
   become: true
   become_user: root
 
+    roles:
+    - role: ypsman.resolv
+      resolv_dns_domain: '{{ set_fqdn }}'
+      resolv_searchpath: "['{{ set_fqdn }}.local', '{{ set_fqdn }}']"
+      resolv_options: "rotate timeout:1"
+      resolv_dns_server:
+      - 8.8.8.8
+      - 8.8.4.4
+
   tasks: 
             
   - name: Install sudo test
@@ -124,20 +133,7 @@
   #    state: present
   #    regexp: '"^search"'
   #    line: '"search {{ set_fqdn }}"'
-  - name: "Configure resolv.conf"
-    include_role:
-      name: "ahuffman.resolv"
-    vars:
-      resolv_nameservers:
-            - "8.8.8.8"
-            - "8.8.4.4"
-      resolv_domain: "thespot.rocks"
-      resolv_search:
-          - "thespot.rocks"
-      resolv_options:
-          - "timeout:2"
-          - "rotate"
-
+  
  # - name: Allow 'search {{set_fqdn}} fqdn'
  #   ansible.builtin.replace:
  #     path: /etc/resolv.conf
