@@ -122,6 +122,7 @@
     ansible.builtin.copy:
       src: /etc/resolv.conf
       dest: /tmp/resolve.conf
+      remote_src: yes
       owner: root
       group: root
       mode: '0644'
@@ -134,6 +135,7 @@
     ansible.builtin.copy:
       src: /tmp/resolv.conf
       dest: /etc/resolv.conf
+      remote_src: yes
       owner: root
       group: root
       mode: '0644'
