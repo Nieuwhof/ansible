@@ -3,7 +3,5 @@ collections:
     version: 4.8.5
     source: https://galaxy.ansible.com
     
-  #- name: blackstar257.resolv
-  #  version: 2.0.0
- #   source: https://github.com/blackstar257/ansible-resolv.git
-    
+  - name: blackstar257.resolv
+    src: blackstar257.resolv
