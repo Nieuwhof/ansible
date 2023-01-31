@@ -7,8 +7,8 @@
       ansible.builtin.include_role:
        name: dginhoux.resolv
   
-  task:
-  
+  tasks:
+
   resolv_mode: legacy
 # resolv_mode: resolved
 
