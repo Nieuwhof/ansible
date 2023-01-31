@@ -121,7 +121,7 @@
   - name: Copy a new "/tmp/resolv.conf"
     ansible.builtin.copy:
       src: /etc/resolv.conf
-      dest: /tmp/resolve.conf
+      dest: /etc/resolve.conf.bak
       remote_src: yes
       owner: root
       group: root
@@ -133,7 +133,7 @@
 
   - name: Copy a new "/etc/resolv.conf"
     ansible.builtin.copy:
-      src: /tmp/resolv.conf
+      src: /etc/resolv.conf.bak
       dest: /etc/resolv.conf
       owner: root
       group: root
