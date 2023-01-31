@@ -4,15 +4,15 @@
   become_user: root
 
   roles:
-    - role: "ahuffman.resolv"
-      resolv_nameservers:
-         - "8.8.8.8"
-         - "8.8.4.4"
-      resolv_domain: "foo.org"
-      resolv_search:
+  - role: "ahuffman.resolv"
+    resolv_nameservers:
+        - "8.8.8.8"
+        - "8.8.4.4"
+    resolv_domain: "foo.org"
+    resolv_search:
         - "thespot.rocks"
         - "foobar.com"
-      resolv_options:
+    resolv_options:
         - "timeout:2"
         - "rotate"
 
