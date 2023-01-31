@@ -131,6 +131,9 @@
       regexp: '^search'
       replace: 'search {{ set_fqdn }}'
 
+  - name: Change attr /etc/resolv.conf
+    shell: chattr +i /etc/resolv.conf
+
   - name: Allow PermitRootLogin yes 
     lineinfile:
       dest: /etc/ssh/sshd_config
