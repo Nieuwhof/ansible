@@ -181,5 +181,5 @@
         - golang
     when: ansible_os_family in ['RedHat', 'Rocky']       
 
-  - name: Reboot a machine
-    reboot:
+#  - name: Reboot a machine
+#    reboot:
