@@ -2,8 +2,6 @@
 - hosts: all
   become: true
   become_user: root
-  roles:
-    - blackstar257.resolv
  
   tasks: 
   - name: install stuff
