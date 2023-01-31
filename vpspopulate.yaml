@@ -118,12 +118,18 @@
     ansible.builtin.hostname:
       name: '{{set_hostname}}'
 
-  - name: Allow 'search {{set_fqdn}} fqdn' 
-    lineinfile:
-      dest: /etc/resolv.conf
-      #state: present
-      regexp: '"^search"'
-      line: '"search {{ set_fqdn }}"'
+  #- name: Allow 'search {{set_fqdn}} fqdn' 
+  #  lineinfile:
+  #    dest: /etc/resolv.conf
+  #    state: present
+  #    regexp: '"^search"'
+  #    line: '"search {{ set_fqdn }}"'
+
+  - name: Allow 'search {{set_fqdn}} fqdn'
+    ansible.builtin.replace:
+      path: /etc/resolv.conf
+      regexp: '^search'
+      replace: 'search {{ set_fqdn }}'
 
   - name: Allow PermitRootLogin yes 
     lineinfile:
