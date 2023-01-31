@@ -118,18 +118,32 @@
     ansible.builtin.hostname:
       name: '{{set_hostname}}'
 
-  #- name: Allow 'search {{set_fqdn}} fqdn' 
-  #  lineinfile:
-  #    dest: /etc/resolv.conf
-  #    state: present
-  #    regexp: '"^search"'
-  #    line: '"search {{ set_fqdn }}"'
+  - name: Copy a new "/tmp/resolv.conf"
+    ansible.builtin.copy:
+      src: /etc/resolv.conf
+      dest: /tmp/resolve.conf
+      owner: root
+      group: root
+      mode: '0644'
+      backup: yes
+
+  - name: remove link "resolv.conf
+    shell: rm /etc/resolv.conf
+
+  - name: Copy a new "/etc/resolv.conf"
+    ansible.builtin.copy:
+      src: /tmp/resolv.conf
+      dest: /etc/resolv.conf
+      owner: root
+      group: root
+      mode: '0644'
+      backup: yes
   
- # - name: Allow 'search {{set_fqdn}} fqdn'
- #   ansible.builtin.replace:
- #     path: /etc/resolv.conf
- #     regexp: '^search'
- #     replace: 'search {{ set_fqdn }}'
+  - name: Allow 'search {{set_fqdn}} fqdn'
+    ansible.builtin.replace:
+      path: /etc/resolv.conf
+      regexp: '^search'
+      replace: 'search {{ set_fqdn }}'
 
   - name: Allow PermitRootLogin yes 
     lineinfile:
