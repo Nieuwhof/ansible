@@ -4,4 +4,3 @@ collections:
     source: https://galaxy.ansible.com
     
   - name: blackstar257.resolv
-    src: blackstar257.resolv
