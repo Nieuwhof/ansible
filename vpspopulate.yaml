@@ -7,6 +7,8 @@
       ansible.builtin.include_role:
        name: dginhoux.resolv
   
+  task:
+  
   resolv_mode: legacy
 # resolv_mode: resolved
 
@@ -18,7 +20,7 @@
     - thespot.rocks
     - ginhoux.net 
   
-  tasks: 
+  #tasks: 
   
   - name: Install sudo test
     apt:
