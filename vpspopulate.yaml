@@ -2,6 +2,22 @@
 - hosts: all
   become: true
   become_user: root
+  roles:
+    - name: start role dginhoux.resolv
+      ansible.builtin.include_role:
+       name: dginhoux.resolv
+  
+  resolv_mode: legacy
+# resolv_mode: resolved
+
+  resolv_nameservers:
+    - 8.8.8.8
+    - 8.8.4.4.
+  
+  resolv_search:
+    - thespot.rocks
+    - ginhoux.net 
+  
   tasks: 
   
   - name: Install sudo test
