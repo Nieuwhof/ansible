@@ -3,14 +3,6 @@
   become: true
   become_user: root
 
-  vars:
-    resolv_conf_nameservers:
-      - 8.8.4.4
-      - 8.8.8.8
-    resolv_conf_search_domains:
-      - thespot.rocks
-  roles:
-    - blackstar257.resolv
  
   tasks: 
   - name: install stuff
