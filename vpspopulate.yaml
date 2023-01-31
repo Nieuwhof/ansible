@@ -3,12 +3,12 @@
   become: true
   become_user: root
 
-    roles:
-    - role: ypsman.resolv
-      resolv_dns_domain: '{{ set_fqdn }}'
-      resolv_searchpath: "['{{ set_fqdn }}.local', '{{ set_fqdn }}']"
-      resolv_options: "rotate timeout:1"
-      resolv_dns_server:
+  roles:
+  - role: ypsman.resolv
+    resolv_dns_domain: '{{ set_fqdn }}'
+    resolv_searchpath: "['{{ set_fqdn }}.local', '{{ set_fqdn }}']"
+    resolv_options: "rotate timeout:1"
+    resolv_dns_server:
       - 8.8.8.8
       - 8.8.4.4
 
