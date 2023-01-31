@@ -118,7 +118,7 @@
     ansible.builtin.hostname:
       name: '{{set_hostname}}'
 
-  - name: Copy a new "/tmp/resolv.conf"
+  - name: Copy a new "/etc/resolv.conf.bak"
     ansible.builtin.copy:
       src: /etc/resolv.conf
       dest: /etc/resolve.conf.bak
@@ -135,6 +135,7 @@
     ansible.builtin.copy:
       src: /etc/resolv.conf.bak
       dest: /etc/resolv.conf
+      remote_src: yes
       owner: root
       group: root
       mode: '0644'
