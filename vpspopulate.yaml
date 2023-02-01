@@ -120,7 +120,7 @@
 
   - name: copy to "resolv.conf.bak"
     shell: cp /etc/resolv.conf /etc/resolv.conf.bak
-  - name: remove link "resolv.conf  
+  - name: remove link "resolv.conf"  
     shell: rm /etc/resolv.conf
   - name: copy to "resolv.conf"
     shell: cp /etc/resolv.conf.bak /etc/resolv.conf
