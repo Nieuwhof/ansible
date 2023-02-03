@@ -116,7 +116,7 @@
      
   - name: Set a hostname
     ansible.builtin.hostname:
-      name: "{{set_hostname}}"
+      name: {{ set_hostname }}
     become: true
 
   - name: copy to "resolv.conf.bak"
