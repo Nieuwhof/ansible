@@ -6,4 +6,3 @@
   tasks:
    - name: Reboot a machine
      reboot:
-
