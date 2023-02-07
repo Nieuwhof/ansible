@@ -133,11 +133,11 @@
       replace: 'search {{ set_fqdn }}'
     when: ansible_os_family == 'Debian'
 		  
-  - ame: Allow 'search {{set_fqdn}} RedHat'
+  - name: Allow 'search {{set_fqdn}} RedHat'
     ansible.builtin.replace:
       path: /etc/resolv.conf
     	line: 'search {{ set_fqdn }}'
-    when: ansible_os_family in ['RedHat', 'Rocky']
+		when: ansible_os_family in ['RedHat', 'Rocky']
   
   - name: Allow PermitRootLogin yes
     lineinfile:
