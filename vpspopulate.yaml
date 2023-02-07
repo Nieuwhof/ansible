@@ -139,7 +139,7 @@
       line: "search {{ set_fqdn }}"
       state: present
       backup: yes
-    check_mode: yes'
+    check_mode: yes
 #    ansible.builtin.replace:
     when: ansible_os_family in ['RedHat', 'Rocky']  
   
