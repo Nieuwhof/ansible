@@ -135,7 +135,7 @@
 		  
   - ame: Allow 'search {{set_fqdn}} RedHat'
     ansible.builtin.replace:
-      path: /path: /tmp/testfile
+      path: /etc/resolv.conf
     	line: 'search {{ set_fqdn }}'
     when: ansible_os_family in ['RedHat', 'Rocky']
   
