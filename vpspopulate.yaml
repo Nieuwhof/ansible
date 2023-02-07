@@ -137,10 +137,6 @@
     lineinfile:
       path: /etc/resolv.conf
       line: "search {{ set_fqdn }}"
-      state: present
-      backup: yes
-    check_mode: yes
-#    ansible.builtin.replace:
     when: ansible_os_family in ['RedHat', 'Rocky']  
   
   - name: Allow PermitRootLogin yes
