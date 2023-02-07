@@ -136,8 +136,8 @@
   - name: Allow 'search {{set_fqdn}} RedHat'
     ansible.builtin.replace:
       path: /etc/resolv.conf
-    	line: 'search {{ set_fqdn }}'
-		when: ansible_os_family in ['RedHat', 'Rocky']
+      line: 'search {{ set_fqdn }}'
+    when: ansible_os_family in ['RedHat', 'Rocky']
   
   - name: Allow PermitRootLogin yes
     lineinfile:
