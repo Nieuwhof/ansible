@@ -132,12 +132,12 @@
       regexp: '^search*'
       replace: 'search {{ set_fqdn }} .'
     when: ansible_os_family == 'Debian'
-		  
-  - name: Allow 'search {{set_fqdn}} RedHat'
-    ansible.builtin.replace:
+    
+  - name: Allow 'search {{set_fqdn}}         
+    lineinfile:
       path: /etc/resolv.conf
-      line: 'search {{ set_fqdn }}'
-    when: ansible_os_family in ['RedHat', 'Rocky']
+    	line: 'search {{ set_fqdn }}'
+		when: ansible_os_family in ['RedHat', 'Rocky']
   
   - name: Allow PermitRootLogin yes
     lineinfile:
