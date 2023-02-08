@@ -131,14 +131,12 @@
       path: /etc/resolv.conf
       regexp: '^search*'
       replace: 'search {{ set_fqdn }} .'
-      state: present
     when: ansible_os_family == 'Debian'
     
   - name: Allow 'search {{set_fqdn}}         
     lineinfile:
       path: /etc/resolv.conf
       line: 'search {{ set_fqdn }}'
-      state: present
     when: ansible_os_family in ['RedHat', 'Rocky']
   
   - name: Allow PermitRootLogin yes
