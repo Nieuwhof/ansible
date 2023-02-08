@@ -126,13 +126,6 @@
   - name: copy to "resolv.conf"
     shell: cp /etc/resolv.conf.bak /etc/resolv.conf
   
-#  - name: Allow 'search {{set_fqdn}} debian'
-#    ansible.builtin.replace:
-#      path: /etc/resolv.conf
-#      regexp: '^search*'
-#      replace: 'search {{ set_fqdn }} .'
-#    when: ansible_os_family == 'Debian'
-
   - name: Allow 'search {{set_fqdn}} debian'
     lineinfile:
       path: /etc/resolv.conf
