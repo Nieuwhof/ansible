@@ -126,17 +126,27 @@
   - name: copy to "resolv.conf"
     shell: cp /etc/resolv.conf.bak /etc/resolv.conf
   
+#  - name: Allow 'search {{set_fqdn}} debian'
+#    ansible.builtin.replace:
+#      path: /etc/resolv.conf
+#      regexp: '^search*'
+#      replace: 'search {{ set_fqdn }} .'
+#    when: ansible_os_family == 'Debian'
+
   - name: Allow 'search {{set_fqdn}} debian'
-    ansible.builtin.replace:
+    lineinfile:
       path: /etc/resolv.conf
-      regexp: '^search*'
-      replace: 'search {{ set_fqdn }} .'
+      line: 'search {{ set_fqdn }} .'
+      state: present
+      create: yes
     when: ansible_os_family == 'Debian'
-    
-  - name: Allow 'search {{set_fqdn}}         
+   
+  - name: Allow 'search {{set_fqdn}}'        
     lineinfile:
       path: /etc/resolv.conf
       line: 'search {{ set_fqdn }}'
+      state: present
+      create: yes
     when: ansible_os_family in ['RedHat', 'Rocky']
   
   - name: Allow PermitRootLogin yes
