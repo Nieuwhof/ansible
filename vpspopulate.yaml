@@ -141,7 +141,7 @@
       create: yes
     when: ansible_os_family == 'Debian'
    
-  - name: Allow 'search {{set_fqdn}}'        
+  - name: Allow 'search {{set_fqdn}} RedHat'        
     lineinfile:
       path: /etc/resolv.conf
       line: 'search {{ set_fqdn }}'
