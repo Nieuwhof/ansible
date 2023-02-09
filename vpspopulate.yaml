@@ -5,6 +5,29 @@
 
   tasks:
 
+  - name: install packages Debian
+    apt:
+        state: present
+        name:
+        - python3
+        - pip
+        - htop
+        - nano
+        - golang-go
+        - figlet
+    when: ansible_os_family == 'Debian'       
+
+  - name: install packages Redhat
+    yum:
+        state: present
+        name:
+        - python3
+        - pip
+        - nano
+        - golang
+        - figlet
+    when: ansible_os_family in ['RedHat', 'Rocky']
+
   - name: Install sudo test
     apt:
       name: sudo
@@ -169,28 +192,7 @@
 
   - name: Password Set Ops
   # shell: echo -e "{{set_pass}}\n{{set_pass}}" | passwd ops
-    shell: echo ops:"{{set_pass}}" | chpasswd
-      
-  - name: install packages Debian
-    apt:
-        state: present
-        name:
-        - python3
-        - pip
-        - htop
-        - nano
-        - golang-go
-    when: ansible_os_family == 'Debian'       
-
-  - name: install packages Redhat
-    yum:
-        state: present
-        name:
-        - python3
-        - pip
-        - nano
-        - golang
-    when: ansible_os_family in ['RedHat', 'Rocky']       
+    shell: echo ops:"{{set_pass}}" | chpasswd       
 
   - name: Reboot a machine
     reboot:
