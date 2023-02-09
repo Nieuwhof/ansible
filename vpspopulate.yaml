@@ -29,7 +29,7 @@
         - figlet
     when: ansible_os_family in ['RedHat', 'Rocky']
 
-  - name: Install sudo test
+  - name: Install sudo Debian
     apt:
       name: sudo
       state: present
