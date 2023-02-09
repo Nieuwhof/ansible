@@ -1,19 +1,23 @@
 ---
 all:
   hosts:
-    gromit.thespot.rocks:
-      set_hostname: gromit
+    localmachine:
+			 ansible_host: 127.0.0.1
   children:
     redhat:
       hosts:
-        preston.thespot.rocks:
-          set_hostname: preston
-        shaun.thespot.rocks:
-          set_hostname: shaun
+    		gromit.thespot.rocks:
+      		set_hostname: gromit
     debian:
       hosts:
         wallace.thespot.rocks:
           set_hostname: wallace
+    spare:
+ 			hosts:
+				preston.thespot.rocks:
+          set_hostname: preston
+        shaun.thespot.rocks:
+          set_hostname: shaun        
         piella.thespot.rocks:
           set_hostname: piella
   vars:
