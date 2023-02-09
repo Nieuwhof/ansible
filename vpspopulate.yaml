@@ -25,7 +25,7 @@
         - pip
         - nano
         - golang
-        - figlet
+        - toilet
     when: ansible_os_family in ['RedHat', 'Rocky']
 
   - name: Install sudo test
