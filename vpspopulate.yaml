@@ -18,7 +18,7 @@
     when: ansible_os_family == 'Debian'       
 
   - name: install packages Redhat
-    yum:
+    dnf:
         state: present
         name:
         - python3
