@@ -195,5 +195,7 @@
   # shell: echo -e "{{set_pass}}\n{{set_pass}}" | passwd ops
     shell: echo ops:"{{set_pass}}" | chpasswd       
 
+	- shell: figlet "Welcome to {{ set_hostname}}.{{ set_fqdn }}" > /etc/motd
+
   - name: Reboot a machine
     reboot:
