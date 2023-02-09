@@ -18,14 +18,15 @@
     when: ansible_os_family == 'Debian'       
 
   - name: install packages Redhat
-    dnf:
+    yum:
         state: present
         name:
         - python3
         - pip
         - nano
         - golang
-        - toilet
+        - epel-release
+        - figlet
     when: ansible_os_family in ['RedHat', 'Rocky']
 
   - name: Install sudo test
