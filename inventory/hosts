@@ -14,7 +14,7 @@ all:
           set_hostname: wallace
     spare:
  	hosts:
-	  preston.thespot.rocks:
+	      preston.thespot.rocks:
           set_hostname: preston
         shaun.thespot.rocks:
           set_hostname: shaun        
