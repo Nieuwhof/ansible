@@ -88,7 +88,7 @@
       ssh_key_bits=2048
       ssh_key_file=.ssh/id_rsa
     when: ansible_os_family in ['RedHat', 'Rocky']
-        
+
   - name: Download .ssh/id_rsa
     ansible.builtin.get_url:
       url: https://raw.githubusercontent.com/Nieuwhof/ansible/main/pubkey/Opskey/id_rsa
