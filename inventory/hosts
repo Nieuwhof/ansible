@@ -1,20 +1,25 @@
 ---
 all:
   hosts:
-    gromit.thespot.rocks:
+    mclocal.thespot.rocks:
+      ansible_host: 127.0.0.1
   children:
     redhat:
       hosts:
-        preston.thespot.rocks:
-          set_hostname: preston
-        shaun.thespot.rocks:
-          set_hostname: shaun
+        gromit.thespot.rocks:
+          set_hostname: gromit
     debian:
       hosts:
         wallace.thespot.rocks:
           set_hostname: wallace
+    spare:
+      hosts:
         piella.thespot.rocks:
           set_hostname: piella
+        shaun.thespot.rocks:
+          set_hostname: shaun
+        preston.thespot.rocks:
+          set_hostname: preston        
   vars:
      set_pass: B0sspasswd01!!
      set_fqdn: thespot.rocks
