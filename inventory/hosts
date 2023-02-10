@@ -8,7 +8,7 @@
     children:  
       redhat:
         hosts:
-     	  gromit.thespot.rocks:
+          gromit.thespot.rocks:
       	    set_hostname: gromit
       debian:
         hosts:
