@@ -5,12 +5,12 @@ all:
       ansible_host: 127.0.0.1
   children:  
     redhat:
-      hosts:
-    	 gromit.thespot.rocks:
+        hosts:
+    	  gromit.thespot.rocks:
       	    set_hostname: gromit
     debian:
-      hosts:
-         wallace.thespot.rocks:
+        hosts:
+          wallace.thespot.rocks:
             set_hostname: wallace
     spare:
  	hosts:
