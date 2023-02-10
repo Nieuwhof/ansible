@@ -1,7 +1,8 @@
 ---
 all:
   hosts:
-  children:
+    MClocal.thespot.rocks:
+  children:  
     redhat:
       hosts:
     		gromit.thespot.rocks:
