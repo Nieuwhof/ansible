@@ -1,8 +1,8 @@
 #---
 all:
   hosts:
-    localmachine:
-			 ansible_host: 127.0.0.1
+ #   localmachine:
+ #			 ansible_host: 127.0.0.1
   children:
     redhat:
       hosts:
