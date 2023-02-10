@@ -15,7 +15,7 @@ all:
           set_hostname: wallace
          piella.thespot.rocks:
            set_hostname: piella
-   vars:
+  vars:
      set_pass: B055passwd01!!
      set_pass: B0sspasswd01!!
      set_fqdn: thespot.rocks
