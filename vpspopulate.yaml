@@ -196,7 +196,7 @@
     shell: echo ops:"{{set_pass}}" | chpasswd       
 
   - name: figlet
-    shell: figlet "{{ set_motd }} {{ set_hostname }} ..." > /etc/motd
+    shell: figlet "This is {{ set_hostname }} ..." > /etc/motd
 
   - name: Reboot a machine
     reboot:
