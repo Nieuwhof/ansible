@@ -5,4 +5,5 @@ collections:
 
 - name: community.digitalocean
   version: 1.23.0
-  source: https://github.com/ansible-collections/community.digitalocean
+  source: https://galaxy.ansible.com
+  
