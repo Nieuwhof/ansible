@@ -3,7 +3,7 @@
     community.digitalocean.digital_ocean:
       state: present
       oauth_token: "{{ lookup('ansible.builtin.env', 'DO_API_TOKEN') }}"
-      ssh_key_ids: 123,456
+      #ssh_key_ids: 123,456
       name: mydroplet
       size_id: 2gb
       region_id: ams2
