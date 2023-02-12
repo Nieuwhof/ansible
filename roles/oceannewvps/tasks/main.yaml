@@ -1,12 +1,4 @@
 ---
-- hosts: localhost
-  vars:
-    digital_ocean_token: dop_v1_1dec172871d52cd45546a7e45f4b7042b8edd934059f9c8cd39db1cb78175204
-    droplet_size: s-1vcpu-1gb
-    droplet_region: nyc1
-    droplet_image: ubuntu-18-04-x64
-  tasks:
-  
   - name: "add public ssh key to digitalocean account"
     digital_ocean_sshkey:
       name: "MacBook Pro"

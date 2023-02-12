@@ -1,10 +1,13 @@
 ---
-- hosts: local
+- hosts: localhost
   become: True
   become_user: root
 
   vars:
-    DO_API_TOKEN: dop_v1_1dec172871d52cd45546a7e45f4b7042b8edd934059f9c8cd39db1cb78175204
+    digital_ocean_token: dop_v1_1dec172871d52cd45546a7e45f4b7042b8edd934059f9c8cd39db1cb78175204
+    droplet_size: s-1vcpu-1gb
+    droplet_region: nyc1
+    droplet_image: ubuntu-18-04-x64
 
   roles:
      - oceannewvps
