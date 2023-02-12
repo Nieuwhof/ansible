@@ -2,7 +2,7 @@
   - name: Create a droplet with ssh key
     community.digitalocean.digital_ocean:
       state: present
-      oauth_token: "{{ lookup('ansible.builtin.env', 'DO_API_TOKEN') }}"
+      oauth_token: "{{ DO_API_TOKEN }}"
       #ssh_key_ids: 123,456
       name: mydroplet
       size_id: 2gb
