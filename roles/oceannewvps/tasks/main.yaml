@@ -3,7 +3,7 @@
     digital_ocean_sshkey:
       name: "MacBook Pro"
       oauth_token: "{{ digital_ocean_token }}"
-      ssh_pub_key: "{{lookup('file', '~/.ssh/id_rsa.pub') }}"
+      ssh_pub_key: "{{lookup('file', '~/.ssh/ops_id_rsa.pub') }}"
       state: present
     register: sshkey_result
 
