@@ -1,5 +1,8 @@
 collections:
-  - name: community.general
-    version: 4.8.5
-    source: https://galaxy.ansible.com
-    
+- name: community.general
+  version: 4.8.5
+  source: https://galaxy.ansible.com
+
+- name: community.digitalocean
+  version: 1.23.0
+  source: https://galaxy.ansible.com/community/digitalocean
