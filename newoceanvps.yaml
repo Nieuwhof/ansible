@@ -7,7 +7,7 @@
     digital_ocean_token0: dop_v1_53b046afa4c63e695375145
     digital_ocean_token1: db3a9595f55efd6133fc5a0c7d732d612d18199cb
     droplet_size: s-1vcpu-512mb
-    droplet_region: nyc1
+    droplet_region: sfo3
     droplet_image: ubuntu-18-04-x64
     droplet_ssh_key: ee:18:46:e4:0e:89:83:9c:10:de:a2:a5:fc:ff:ee:5e
 
