@@ -8,6 +8,6 @@
     region: sfo3
     image: ubuntu-20-04-x64
     wait_timeout: 500
-    ssh_keys: [ "{{set_sshkey}}" ]
+    ssh_keys: [ee:18:46:e4:0e:89:83:9c:10:de:a2:a5:fc:ff:ee:5e]
   register: my_droplet
 
