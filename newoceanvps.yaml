@@ -4,7 +4,8 @@
   become_user: root
 
   vars:
-    digital_ocean_token: dop_v1_1dec172871d52cd45546a7e45f4b7042b8edd934059f9c8cd39db1cb78175204
+    digital_ocean_token0: dop_v1_53b046afa4c63e695375145
+    digital_ocean_token1: db3a9595f55efd6133fc5a0c7d732d612d18199cb
     droplet_size: s-1vcpu-1gb
     droplet_region: nyc1
     droplet_image: ubuntu-18-04-x64
