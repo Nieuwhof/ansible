@@ -21,5 +21,7 @@
 - name: Create a corresponding domain
   community.digitalocean.digital_ocean_domain:
     state: present
+    oauth_token: "{{ digital_ocean_token0 }}{{ digital_ocean_token1 }}"
     name: "{{my_droplet.data.droplet.name }}.thespot.rocks"
     ip: "{{(my_droplet.data.droplet.networks.v4 | selectattr('type', 'equalto', 'public')).0.ip_address | default('<none>', true) }}"
+
