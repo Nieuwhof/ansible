@@ -17,3 +17,9 @@
       Droplet ID is {{ my_droplet.data.droplet.id }}
       First Public IPv4 is {{ (my_droplet.data.droplet.networks.v4 | selectattr('type', 'equalto', 'public')).0.ip_address | default('<none>', true) }}
       First Private IPv4 is {{ (my_droplet.data.droplet.networks.v4 | selectattr('type', 'equalto', 'private')).0.ip_address | default('<none>', true) }}
+
+- name: Create a corresponding domain
+  community.digitalocean.digital_ocean_domain:
+    state: present
+    name: "{{my_droplet.droplet.name }}.thespot.rocks"
+    ip: "{{ my_droplet.droplet.ip_address }}"
