@@ -1,11 +1,11 @@
 ---
-#  - name: "add public ssh key to digitalocean account"
-#    digital_ocean_sshkey:
-#      name: "MacBook Pro"
-#      oauth_token: "{{ digital_ocean_token }}"
-#      ssh_pub_key: "{{lookup('file', '~/.ssh/ops_id_rsa.pub') }}"
-#      state: present
-#    register: sshkey_result
+  - name: "add public ssh key to digitalocean account"
+    digital_ocean_sshkey:
+      name: "Bertie"
+      oauth_token: "{{ digital_ocean_token0 }}{{ digital_ocean_token1 }}"
+      ssh_pub_key: "{{ set_sshkey }}" 
+      state: present
+    register: sshkey_result
 
   - name: create a new droplet assigning the key
     digital_ocean_droplet:
@@ -17,7 +17,7 @@
       image: "{{ droplet_image }}"
       wait_timeout: 600
       unique_name: yes
-      ssh_keys: "{{ set_sshkey }}"      
+      ssh_keys: "{{ set_pub_key }}"      
       state: present
  #   with_inventory_hostnames:
  #     - preston
