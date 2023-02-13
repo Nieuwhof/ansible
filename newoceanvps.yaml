@@ -4,6 +4,7 @@
   become_user: root
 
   vars:
+    droplet_name: starter
     digital_ocean_token0: dop_v1_53b046afa4c63e695375145
     digital_ocean_token1: db3a9595f55efd6133fc5a0c7d732d612d18199cb
     droplet_size: s-1vcpu-512mb-10gb
