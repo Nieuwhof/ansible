@@ -10,8 +10,8 @@
     wait_timeout: 500
     ssh_keys: "{{ droplet_ssh_key }}"
     loop: 
-      - "server1"
-      - "server2"
+    - "server1"
+    - "server2"
   register: my_droplet
 
 - name: Show Droplet info
