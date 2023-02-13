@@ -12,7 +12,7 @@ all:
       hosts:
         wallace.thespot.rocks:
           set_hostname: wallace
-        starter.thspot.rocks:
+        starter.thespot.rocks:
           set_hostname: starter
     spare:
       hosts:
