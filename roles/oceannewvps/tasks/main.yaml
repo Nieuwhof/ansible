@@ -22,4 +22,4 @@
   community.digitalocean.digital_ocean_domain:
     state: present
     name: "{{my_droplet.data.droplet.name }}.thespot.rocks"
-    ip: "{{ {{ (my_droplet.data.droplet.networks.v4 | selectattr('type', 'equalto', 'public')).0.ip_address | default('<none>', true) }}"
+    ip: "{{(my_droplet.data.droplet.networks.v4 | selectattr('type', 'equalto', 'public')).0.ip_address | default('<none>', true) }}"
