@@ -3,11 +3,20 @@
   community.digitalocean.digital_ocean_droplet:
     state: present
     oauth_token: "{{ digital_ocean_token0 }}{{ digital_ocean_token1 }}"
-    name: mydroplet
-    size: s-1vcpu-1gb
-    region: sfo3
-    image: ubuntu-20-04-x64
+    name: "{{ item }}"
+    size: "{{ droplet_size }}"
+    region: "{{ droplet_region }}"
+    image: "{{ droplet_image }}"
     wait_timeout: 500
-    ssh_keys: [ee:18:46:e4:0e:89:83:9c:10:de:a2:a5:fc:ff:ee:5e]
+    ssh_keys: "{{ droplet_ssh_key }}"
+    loop: 
+      - "server1"
+      - "server2"
   register: my_droplet
 
+- name: Show Droplet info
+  ansible.builtin.debug:
+    msg: |
+      Droplet ID is {{ my_droplet.data.droplet.id }}
+      First Public IPv4 is {{ (my_droplet.data.droplet.networks.v4 | selectattr('type', 'equalto', 'public')).0.ip_address | default('<none>', true) }}
+      First Private IPv4 is {{ (my_droplet.data.droplet.networks.v4 | selectattr('type', 'equalto', 'private')).0.ip_address | default('<none>', true) }}
