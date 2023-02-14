@@ -1,8 +1,8 @@
 ---
 all:
   hosts:
-    mclocal.thespot.rocks:
-      ansible_host: 127.0.0.1
+#   mclocal.thespot.rocks:
+#   ansible_host: 127.0.0.1
   children:
     redhat:
       hosts:
