@@ -16,8 +16,8 @@ all:
           set_hostname: starter
     spare:
       hosts:
-        piella.thespot.rocks:
-          set_hostname: piella
+#        piella.thespot.rocks:
+#          set_hostname: piella
         shaun.thespot.rocks:
           set_hostname: shaun
         preston.thespot.rocks:
