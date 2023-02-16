@@ -15,4 +15,9 @@
           group: '{{ item.group }}' 
           state: present
        loop: '{{ account }}'
+       register:  my_test 
+
+- name: Print the my_test
+  debug:
+    var: my_test.stdout_lines
 
