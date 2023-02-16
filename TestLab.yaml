@@ -19,5 +19,8 @@
 
      - name: "Print the my_test"
        ansible.builtin.debug:
-           msg: "{{ my_ test }}" 
+           var: my_test
+           verbosity: 2
+     #      msg: 
+      #     - '{{ my_ test }}'
   
