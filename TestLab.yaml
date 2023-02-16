@@ -5,9 +5,8 @@
   
   vars:
    account:
-    - name: "arnold"  group: sudo
-    - name: bolti
-      group: sudo
+    - { name: arnold ,  group: sudo }
+    - { name: bolti ,   group: sudo }
     
   tasks:
      - name: Loop test create users
