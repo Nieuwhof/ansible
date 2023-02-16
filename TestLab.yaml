@@ -17,7 +17,7 @@
        loop: '{{ account }}'
        register:  my_test 
 
-- name: Print the my_test
-  ansible.builtin.debug:
-    msg: "{{ my_ test }}" 
+      - name: Print the my_test
+        ansible.builtin.debug:
+          msg: "{{ my_ test }}" 
   
