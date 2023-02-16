@@ -6,9 +6,9 @@
   vars:
    account:
     - name: arnold 
-      group: root
+      group: sudo
     - name: bolti
-      group: root
+      group: sudo
     
   tasks:
      - name: Loop test create users
@@ -17,4 +17,4 @@
           group: '{{ item }}' 
           state: present
        loop: '{{ account }}'
-          
+
