@@ -13,8 +13,8 @@
   tasks:
      - name: Loop test create users
        user:
-          name: '{{ item }}' 
-          group: '{{ item }}' 
+          name: '{{ item.name }}' 
+          group: '{{ item.group }}' 
           state: present
        loop: '{{ account }}'
 
