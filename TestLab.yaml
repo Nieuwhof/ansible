@@ -19,5 +19,4 @@
 
 - name: Print the my_test
   debug:
-    var: my_test.stdout_lines
-
+    var: my_test
