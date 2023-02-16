@@ -5,8 +5,7 @@
   
   vars:
    account:
-    - name: arnold 
-      group: sudo
+    - name: "arnold"  group: sudo
     - name: bolti
       group: sudo
     
