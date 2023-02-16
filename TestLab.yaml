@@ -19,5 +19,5 @@
 
 - name: Print the my_test
   ansible.builtin.debug:
-    msg: {{ my_ test}} 
+    msg: "{{ my_ test }}" 
   
