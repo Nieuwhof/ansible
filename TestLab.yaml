@@ -19,6 +19,6 @@
 
      - name: "Print the my_test"
        ansible.builtin.debug:
-          var: my_test..stdout_lines
+          var: my_test.stdout_lines
           verbosity: 4
  
