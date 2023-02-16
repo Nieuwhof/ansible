@@ -19,6 +19,5 @@
 
      - name: "Print the my_test"
        ansible.builtin.debug:
-          var: my_test.stdout_lines
-          verbosity: 4
- 
+          msg:  System {{ inventory_hostname }} has gateway {{ ansible_default_ipv4.gateway }}
+          
