@@ -18,5 +18,7 @@
        register:  my_test 
 
 - name: Print the my_test
-  debug:
+  ansible.builtin.debug:
     var: my_test
+    verbosity: 4
+    
