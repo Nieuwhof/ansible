@@ -20,4 +20,4 @@
      - name: "Print the my_test"
        ansible.builtin.debug:
 #          msg:  System {{ inventory_hostname }} has IP {{ ansible_default_ipv4.address }}    
-       var: my_test
+        var: my_test
