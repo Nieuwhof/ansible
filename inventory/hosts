@@ -12,7 +12,7 @@ all:
       hosts:
         wallace.thespot.rocks:
           set_hostname: wallace
-        preston.thespot.rocks:
+        preston.netbird.cloud:
           set_hostname: preston 
         gromit.thespot.rocks:
           set_hostname: gromit         
