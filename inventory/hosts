@@ -13,7 +13,8 @@ all:
         wallace.thespot.rocks:
           set_hostname: wallace
         preston.netbird.cloud:
-          set_hostname: preston 
+          set_hostname: preston
+          ansible_host: 100.80.160.115
         gromit.thespot.rocks:
           set_hostname: gromit         
     spare:
