@@ -15,9 +15,10 @@ all:
           ansible_host: 100.80.58.164
         preston.netbird.cloud:
           set_hostname: preston
+          ansible_host: 100.80.242.193
+        gromit.netbird.cloud:
+          set_hostname: gromit
           ansible_host: 100.80.160.115
-        gromit.thespot.rocks:
-          set_hostname: gromit         
     spare:
       hosts:
         piella.thespot.rocks:
