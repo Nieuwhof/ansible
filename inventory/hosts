@@ -10,8 +10,9 @@ all:
           set_hostname: blank
     debian:
       hosts:
-        wallace.thespot.rocks:
+        wallace.netbird.cloud:
           set_hostname: wallace
+          ansible_host: 100.80.58.164
         preston.netbird.cloud:
           set_hostname: preston
           ansible_host: 100.80.160.115
