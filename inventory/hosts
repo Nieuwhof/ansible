@@ -6,20 +6,23 @@ all:
   children:
     redhat:
       hosts:
-        gromit.thespot.rocks:
-          set_hostname: gromit
+        blank.thespot.rocks:
+          set_hostname: blank
     debian:
       hosts:
         wallace.thespot.rocks:
           set_hostname: wallace
+        preston.thespot.rocks:
+          set_hostname: preston 
+        gromit.thespot.rocks:
+          set_hostname: gromit         
     spare:
       hosts:
         piella.thespot.rocks:
           set_hostname: piella
         shaun.thespot.rocks:
           set_hostname: shaun
-        preston.thespot.rocks:
-          set_hostname: preston        
+       
   vars:
       set_pass: B0sspasswd01!!
       set_fqdn: thespot.rocks
