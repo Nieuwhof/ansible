@@ -21,7 +21,7 @@ all:
           ansible_host: 100.80.160.115
         web.netbird.cloud:
           set_hostname: web
-          ansible_host: 100.80.242.193
+          ansible_host: 100.80.31.224
     spare:
       hosts:
         piella.thespot.rocks:
