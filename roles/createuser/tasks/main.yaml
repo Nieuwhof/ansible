@@ -2,15 +2,10 @@
 
 - name: Create user account
   user: name=ops
-        password={{ set_pass }}
         groups=sudo
         state=present
         append=yes
         shell="/bin/bash"
-#        update_password=always
-       
-- debug:
-    msg: '{{set_pass}}\n{{set_pass}}'
 
 - name: Password Root
   shell: echo -e "{{set_pass}}\n{{set_pass}}" | passwd root
