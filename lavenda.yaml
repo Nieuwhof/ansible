@@ -1,6 +1,6 @@
 ---
-- name: Install Laverna on web.netbird.source
-  hosts: web.netbird.source
+- name: Install Laverna on web.netbird.cloud
+  hosts: all
   become: true
 
   tasks:
