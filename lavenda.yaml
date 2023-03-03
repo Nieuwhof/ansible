@@ -1,0 +1,29 @@
+---
+- name: Install Laverna on web.netbird.source
+  hosts: web.netbird.source
+  become: true
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install required packages
+      apt:
+        name: [nodejs, npm]
+
+    - name: Clone Laverna from Github
+      git:
+        repo: https://github.com/Laverna/laverna.git
+        dest: /opt/laverna
+        version: master
+
+    - name: Install Laverna dependencies
+      command: npm install
+      args:
+        chdir: /opt/laverna
+
+    - name: Start Laverna
+      command: npm start
+      args:
+        chdir: /opt/laverna
