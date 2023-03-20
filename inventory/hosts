@@ -12,7 +12,7 @@ all:
       hosts:
         wallace.thespot.rocks:
           set_hostname: wallace
-          ansible_host: 161.35.24.223
+#          ansible_host: 127.0.0.1
         preston.netbird.cloud:
           set_hostname: preston
         gromit.netbird.cloud:
