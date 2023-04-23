@@ -27,6 +27,7 @@ all:
           set_hostname: piella
         shaun.netbird.cloud:
           set_hostname: shaun
+          ansible_host: 100.80.78.149
        
   vars:
       set_pass: B0sspasswd01!!
