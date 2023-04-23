@@ -17,7 +17,7 @@ all:
           set_hostname: preston
         gromit.netbird.cloud:
           set_hostname: gromit
-          ansible_host: 100.80.160.115
+          ansible_host: 100.80.244.129
         web.netbird.cloud:
           set_hostname: web
           ansible_host: 100.80.31.224
