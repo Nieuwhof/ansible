@@ -17,7 +17,7 @@ all:
           set_hostname: preston
         gromit.netbird.cloud:
           set_hostname: gromit
-          ansible_host: 100.80.244.129
+          ansible_host: 100.80.159.201
         web.netbird.cloud:
           set_hostname: web
           ansible_host: 100.80.31.224
@@ -27,7 +27,7 @@ all:
           set_hostname: piella
         shaun.netbird.cloud:
           set_hostname: shaun
-          ansible_host: 100.80.78.149
+          ansible_host: 100.80.200.121
        
   vars:
       set_pass: B0sspasswd01!!
