@@ -21,13 +21,14 @@ all:
         web.netbird.cloud:
           set_hostname: web
           ansible_host: 100.80.31.224
-    spare:
+    bigpants:
       hosts:
-        piella.thespot.rocks:
-          set_hostname: piella
-        shaun.netbird.cloud:
+        pants1.netbird.cloud:
+          set_hostname: pants1
+          ansible_host: 100.80.146.125
+        pants2.netbird.cloud:
           set_hostname: shaun
-          ansible_host: 100.80.200.121
+          ansible_host: 100.80.142.31
        
   vars:
       set_pass: B0sspasswd01!!
