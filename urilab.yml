@@ -3,11 +3,13 @@
   become: true
   become_user: root
   tasks:
+
   - name: uritest
     uri:
       url: https://devopsjunction.com
     register: result
 
+  - name: debugging info
     debug: 
       msg: result.stdout_lines
  
