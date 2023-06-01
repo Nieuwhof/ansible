@@ -9,7 +9,7 @@
       url: https://devopsjunction.com
     register: result
 
-  - name: debugging info
+  - name: debugging
     debug: 
-      msg: result.stdout_lines
- 
+      var: result
+      verbosity: 2
