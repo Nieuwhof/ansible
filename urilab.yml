@@ -8,6 +8,5 @@
       url: https://devopsjunction.com
     register: result
 
-  - debug: 
-    var: result
-    
+  - debug: var=result.stdout_lines
+ 
