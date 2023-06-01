@@ -2,8 +2,8 @@
 - hosts: all
   become: true
   become_user: root
-  
-- name: uritest
-  uri:
-    url: https://devopsjunction.com
-  register: result
+  tasks:
+  - name: uritest
+    uri:
+      url: https://devopsjunction.com
+    register: result
