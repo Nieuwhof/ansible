@@ -1,5 +1,5 @@
 ---
-- hosts: virtualmin
+- hosts: all
   remote_user: '{{ standard_user }}'
   become: true
   become_method: sudo
