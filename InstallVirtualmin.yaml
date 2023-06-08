@@ -19,7 +19,7 @@
 
     - name: 'install virtualmin (takes around 10 mins) you can see progress using $ sudo tail -f /root/virtualmin-install.log'
       tags: non-idem
-      shell: ~/install.sh --hostname {{ ansible_hostname }} --minimal --yes
+      shell: ~/install.sh --hostname {{ ansible_hostname }}.netbird.cloud --minimal --yes
       args:
         chdir: /root
 
