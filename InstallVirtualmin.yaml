@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  remote_user: '{{ standard_user }}'
+  remote_user: 'ops'
   become: true
   become_method: sudo
   tasks:
