@@ -6,7 +6,7 @@
 
   - name: uritest
     uri:
-      url: https://devopsjunction.com
+      url: https://google.com
     register: result
 
   - name: debugging
