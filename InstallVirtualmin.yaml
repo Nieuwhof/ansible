@@ -2,7 +2,6 @@
 - hosts: all
   remote_user: 'ops'
   become: true
-  become_method: root
   tasks:
     - name: 'remove unneeded packages'
       apt:
