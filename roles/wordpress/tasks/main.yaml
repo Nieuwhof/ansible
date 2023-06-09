@@ -1,9 +1,7 @@
-- hosts: all
-  become: true
-  vars_files:
-    - vars/default.yml
- 
-  tasks:
+---
+    - vars_files:
+      - vars/default.yml
+
     - name: Install prerequisites
       apt: name=aptitude update_cache=yes state=latest force_apt_get=yes
       tags: [ system ]
