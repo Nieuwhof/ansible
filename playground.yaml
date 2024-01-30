@@ -1,0 +1,10 @@
+---
+   
+- hosts: all
+  become: True
+  become_user: root
+
+  roles:
+    - updateos
+    - playground
+    
