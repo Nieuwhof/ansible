@@ -52,7 +52,7 @@ def main():
     bet = get_bet()
     total_bet = lines * bet
 
-    print(f"You are betting $(bet) on {lines} lines... Total bet: ${total_bet}...")
+    print(f"You are betting ${bet} on {lines} lines... Total bet: ${total_bet}...")
 
 
 
