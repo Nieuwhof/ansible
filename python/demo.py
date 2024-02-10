@@ -1,4 +1,5 @@
 import os
+import sys
 
 def create_directory(directory_name):
     while True:
@@ -60,5 +61,10 @@ if os.path.exists(directory_name):
         print("Invalid file extension. Please choose from pdf, txt, or jpg.")
 
     # Get file name for deletion
-    file_name = input("Enter the name of the file to delete (including extension): ")
-    delete_file(directory_name, file_name)
+    dchoice = input("Do you want to delete a file? (Y/N): ").lower()
+    if dchoice not in ("y", "yes"):
+        print("Goodbye!")
+        sys.exit()  # Exit the program
+    else:
+        file_name = input("Enter the name of the file to delete (including extension): ")
+        delete_file(directory_name, file_name)
