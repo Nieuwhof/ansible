@@ -1,1 +1,1 @@
-ghh
+# Removed the undefined variable "ghh"
