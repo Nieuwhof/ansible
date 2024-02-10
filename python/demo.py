@@ -1,94 +1,64 @@
 import os
-import logging
 
-PATH = "files"  # Adjust if necessary
-EXTENTIONS = [".txt", ".pdf", ".docx", ".xlsx", ".pptx"]
-DEFAULT_FILE_COUNT = 100
-
-def exist_directory():
-    """Checks if the directory exists and creates it if necessary.
-
-    Returns:
-        bool: True if the directory exists or was created, False otherwise.
-    """
-
-    logger = logging.getLogger(__name__)
-
-    # Ensure directory creation using a loop with error handling
-    while not os.path.exists(PATH):
+def create_directory(directory_name):
+    while True:
         try:
-            os.mkdir(PATH)
-            logger.info("Directory created:", PATH)
-            return True
-        except (OSError, PermissionError) as e:
-            logger.error(f"Error creating directory: {e}")
-            error_choice = input("Directory creation failed. Retry? (Y/N): ").lower()
-            if error_choice not in ("y", "yes"):
-                return False  # Respect user decision to stop
+            os.mkdir(directory_name)
+            print(f"Directory '{directory_name}' created successfully.")
+            return  # Exit the loop if creation succeeds
+        except FileExistsError:
+            print(f"Directory '{directory_name}' already exists.")
+        except OSError as e:
+            print(f"Error creating directory: {e}")
+        choice = input("Directory creation failed. Retry? (Y/N): ").lower()
+        if choice not in ("y", "yes"):
+            return  # Respect user decision to stop
 
+def create_files(directory_name, file_extension, num_files):
+    for i in range(1, num_files + 1):
+        file_name = f"filenumber-{i}.{file_extension}"
+        file_path = os.path.join(directory_name, file_name)
+        with open(file_path, 'w') as file:
+            file.write(f"This is file number {i} with extension {file_extension}")
+        print(f"File '{file_name}' created successfully.")
+
+def delete_file(directory_name, file_name):
+    file_path = os.path.join(directory_name, file_name)
+    try:
+        os.remove(file_path)
+        print(f"File '{file_name}' deleted successfully.")
+    except FileNotFoundError:
+        print(f"File '{file_name}' not found.")
+
+# Input validation and directory creation
+while True:
+    directory_name = input("Enter the name of the directory to create (or 'q' to quit): ").strip()
+    if directory_name == "q":
+        break  # Exit the program if the user enters 'q'
+    if directory_name:
+        create_directory(directory_name)
+        break  # Exit the loop if directory creation succeeds
     else:
-        logger.info("Directory already exists:", PATH)
-        return True
+        print("Empty directory name. Please try again.")
 
-def create_files(count=DEFAULT_FILE_COUNT):
-    """Creates the specified number of files with appropriate extensions.
-
-    Args:
-        count (int, optional): The number of files to create. Defaults to 100.
-
-    Returns:
-        int: The actual number of files created.
-    """
-
-    if not exist_directory():
-        return 0  # Indicate failure on directory creation error
-
-    logger = logging.getLogger(__name__)
-    file_count = 0
-    error_count = 0
-
-    for i in range(1, count + 1):
-        file_name = f"file_{i}{EXTENTIONS[i % 5]}"
-        file_path = os.path.join(PATH, file_name)
-
+if os.path.exists(directory_name):
+    # Input validation for file creation
+    while True:
         try:
-            with open(file_path, "w") as file:
-                file.write(f"This is the content of {file_name}")
-                logger.info(f"{file_name} created")
-                file_count += 1
-        except (IOError, PermissionError) as e:
-            error_count += 1
-            logger.error(f"Error creating {file_name}: {e}")
+            num_files = int(input("Enter the number of files to create: "))
+            if num_files > 0:
+                break
+            else:
+                print("Invalid number of files. Please enter a positive integer.")
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
 
-    if error_count > 0:
-        logger.info(f"Finished with {error_count} errors.")
+    file_extension = input("Enter the file extension (pdf, txt, jpg): ").lower()
+    if file_extension in ("pdf", "txt", "jpg"):
+        create_files(directory_name, file_extension, num_files)
     else:
-        logger.info(f"All {file_count} files created successfully.")
+        print("Invalid file extension. Please choose from pdf, txt, or jpg.")
 
-    return file_count
-
-def main():
-    """Handles user input and calls appropriate functions."""
-
-    logging.basicConfig(level=logging.INFO)  # Set basic logging
-
-    create_dir = input("Create the base folder for test files? (Y/N): ").lower() == "y"
-    if create_dir:
-        exist_directory()
-
-    create_files_flag = input("Create test files? (Y/N): ").lower() == "y"
-    if create_files_flag:
-        while True:
-            try:
-                file_count = int(input("How many files do you want to create? (1-101): "))
-                if 1 <= file_count <= 101:
-                    break
-                else:
-                    print("Invalid input. Please enter a number between 1 and 101.")
-            except ValueError:
-                print("Invalid input. Please enter a valid number.")
-
-        create_files(file_count)
-
-if __name__ == "__main__":
-    main()
+    # Get file name for deletion
+    file_name = input("Enter the name of the file to delete (including extension): ")
+    delete_file(directory_name, file_name)
