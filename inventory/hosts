@@ -6,7 +6,7 @@ all:
       ansible_host: 164.90.151.172
     gromit:
       set_hostname: gromit
-      ansible_host: 143.198.156.140
+      ansible_host: 165.22.253.180
    
   vars:
       set_pass: B0sspasswd01!!
