@@ -191,6 +191,14 @@
 
   - name: figlet
     shell: figlet "This is {{ set_hostname }} ..."  > /etc/motd
+    
+  - name:  Create hosts files
+    template:
+      src: hosts.j2
+      dest: /etc/hosts
+      owner:  root
+      group:  root
+      mode:  "0644"
 
   - name: Reboot a machine
     reboot:
