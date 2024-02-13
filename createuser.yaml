@@ -1,7 +1,8 @@
 ---
 
-- hosts: all
-  become: True
+- name: Play Name
+  hosts: all
+  become: true
   become_user: root
   roles:
     - createuser
