@@ -1,12 +1,9 @@
 ---
-- name: example with encrypted variables
-  block:
-    - name: msg password
-      ansible.builtin.debug:
-        msg: "password is {{ userpassword }}"
+- name: "example with encrypted variables"
   vars_files:
     - secrets.yml
   tasks:
-    - name: msg password
-      ansible.builtin.debug:
-        msg: "password is {{ userpassword }}"
+    - name: "msg password"
+      block:
+        - debug:
+            msg: "password is {{ userpassword }}"
