@@ -1,6 +1,5 @@
 - name: Playbook with Vault
-  block:
-    tasks:
+  tasks:
       - name: include vault
         ansible.builtin.include_vars:
           file: secrets.yml
