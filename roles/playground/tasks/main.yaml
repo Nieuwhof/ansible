@@ -1,14 +1,11 @@
 ---
-- name: "example with encrypted variables"
-  block:
-    - name: "msg password"
-      block:
-        - debug:
-            msg: "password is {{ userpassword }}"
-  vars_files:
-    - secrets.yml
+- name: Playbook with Vault
+  hosts: all
   tasks:
-    - name: "msg password"
-      block:
-        - debug:
-            msg: "password is {{ userpassword }}"
+    - name: include vault
+      ansible.builtin.include_vars:
+        file: mypassword.yml
+
+    - name: print variable
+      ansible.builtin.debug:
+        var: mypassword
