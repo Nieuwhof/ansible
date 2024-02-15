@@ -3,7 +3,7 @@ all:
   hosts:
     preston:
       set_hostname: preston
-      ansible_host: 64.226.86.122
+      ansible_host: 209.38.226.130
     gromit:
       set_hostname: gromit
       ansible_host: 165.22.253.180
