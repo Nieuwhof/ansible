@@ -1,5 +1,5 @@
 ---
-- name: Play Name
+- name: Create new DigitalOcean VPS
   hosts: all
   become: true
   become_user: root
