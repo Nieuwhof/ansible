@@ -6,8 +6,8 @@
 
   vars:
     droplet_name: preston
-    digital_ocean_token0: dop_v1_53b046afa4c63e695375145
-    digital_ocean_token1: db3a9595f55efd6133fc5a0c7d732d612d18199cb
+    digital_ocean_token0: dop_v1_f8b675f60b067f786bece
+    digital_ocean_token1: 078daca5aa51c7b5d3565c76b1b4462066f0ea8beb7
     droplet_size: s-1vcpu-512mb-10gb
     droplet_region: FRA1
     droplet_image: ubuntu-20-04-x64
