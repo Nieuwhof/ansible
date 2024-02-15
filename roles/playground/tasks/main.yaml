@@ -1,10 +1,7 @@
-- name: Playbook with Vault
-  tasks:
-      - name: include vault
-        ansible.builtin.include_vars:
-          file: secrets.yml
-
-      - name: print variable
-        ansible.builtin.debug:
-          var: userpassword
-
+---
+    - name: include vault
+      ansible.builtin.include_vars:
+        file: secrets.yml
+    - name: print variable
+      ansible.builtin.debug:
+        var: userpassword
