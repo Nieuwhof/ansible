@@ -11,18 +11,18 @@
         - figlet
     when: ansible_os_family == 'Debian'       
 
-  - name: install packages Redhat
-    yum:
-        state: present
-        name:
-        #- python3
-        #- pip
-        - nano
-        - podman
-        - httpd-tools
-        - epel-release
-    #   - figlet
-    when: ansible_os_family in ['RedHat', 'Rocky']
+  # - name: install packages Redhat
+  #   yum:
+  #       state: present
+  #       name:
+  #       #- python3
+  #       #- pip
+  #       - nano
+  #       - podman
+  #       - httpd-tools
+  #       - epel-release
+  #   #   - figlet
+  #   when: ansible_os_family in ['RedHat', 'Rocky']
 
   - name: Install sudo Debian
     apt:
