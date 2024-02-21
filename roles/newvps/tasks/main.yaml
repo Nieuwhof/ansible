@@ -20,7 +20,7 @@
         - nano
         - podman
         - epel-release
-        - figlet
+    #   - figlet
     when: ansible_os_family in ['RedHat', 'Rocky']
 
   - name: Install sudo Debian
