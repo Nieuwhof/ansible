@@ -15,8 +15,8 @@
     yum:
         state: present
         name:
-        - python3
-        - pip
+        #- python3
+        #- pip
         - nano
         - podman
         - httpd-tools
