@@ -3,10 +3,10 @@ all:
   hosts:
     myregistry:
       set_hostname: myregistry
-      ansible_host: 24.144.95.80 
+      ansible_host: 82.165.230.228 
     gromit:
       set_hostname: gromit
-      ansible_host: 165.22.253.180
+      ansible_host: 82.165.204.201
    
   vars:
       set_pass: B0sspasswd01!!
