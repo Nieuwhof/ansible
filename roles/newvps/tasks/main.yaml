@@ -18,7 +18,7 @@
         - python3
         - pip
         - nano
-        - golang
+#        - golang
         - epel-release
         - figlet
     when: ansible_os_family in ['RedHat', 'Rocky']
