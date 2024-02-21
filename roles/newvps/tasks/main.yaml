@@ -12,13 +12,13 @@
     when: ansible_os_family == 'Debian'       
 
   - name: install packages Redhat
-    yum:
+    dnf:
         state: present
         name:
         - python3
         - pip
         - nano
-#        - golang
+        - podman
         - epel-release
         - figlet
     when: ansible_os_family in ['RedHat', 'Rocky']
