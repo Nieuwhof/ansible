@@ -1,9 +1,9 @@
 ---
 all:
   hosts:
-    preston:
-      set_hostname: preston
-      ansible_host: 209.38.226.130
+    myregistry:
+      set_hostname: myregistry
+      ansible_host: 24.144.95.80 
     gromit:
       set_hostname: gromit
       ansible_host: 165.22.253.180
