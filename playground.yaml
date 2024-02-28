@@ -1,6 +1,6 @@
 ---
    
-- hosts: all
+- hosts: gromit
   become: True
   become_user: root
 
