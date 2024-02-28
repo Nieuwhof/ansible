@@ -1,7 +1,7 @@
 ---
-  - name: include vault
-    ansible.builtin.include_vars:
-      file: secrets.yml
-  - name: print variable
-    ansible.builtin.debug:
-      var: userpassword
+
+    - name: List operating systems and version of hosts
+      debug:
+        msg: "Operating system is {{ ansible_distribution }} {{ ansible_distribution_version }}"
+
+
