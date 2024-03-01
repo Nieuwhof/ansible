@@ -1,7 +1,7 @@
 ---
 
-    - name: List operating systems and version of hosts
-      debug:
-        msg: "Operating system is {{ ansible_distribution }} {{ ansible_distribution_version }}"
-
-
+        - name: 'Create a personal site'
+          community.general.hugo:
+            path: '{{ playbook_dir }}/site'
+            theme: 'hugo-creative-portfolio-theme'
+            title: 'My Personal Site'
