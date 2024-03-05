@@ -1,7 +1,2 @@
 ---
 
-        - name: 'Create a personal site'
-          community.general.hugo:
-            path: '{{ playbook_dir }}/site'
-            theme: 'hugo-creative-portfolio-theme'
-            title: 'My Personal Site'
