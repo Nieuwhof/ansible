@@ -1,1 +1,7 @@
-
+all:
+  vars:
+    users:
+      - koos
+      - andre
+      - user1
+      
