@@ -1,7 +1,13 @@
 all:
   vars:
     users:
-      - koos
-      - andre
-      - user1
-      
+      koos:
+        name: Koos
+        pass: k1
+      andre:
+        name: Andre
+        pass: a1
+      user1: User1
+        name: user1
+        pass: u1
+              
