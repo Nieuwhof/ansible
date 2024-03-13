@@ -4,10 +4,21 @@ all:
       koos:
         name: Koos
         pass: k1
+        organization: Default
+        credential: Machine
+        teams: 
       andre:
         name: Andre
         pass: a1
+        organization: Default
+        credential: Machine
+        teams: 
       user1: User1
         name: user1
         pass: u1
+        organization: Default
+        credential: Machine
+        teams: testteam
+        
+        
               
