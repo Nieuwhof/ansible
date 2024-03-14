@@ -1,5 +1,6 @@
 ---
 - name: Add user as a system administrator
+  awx.awx:
   user:
     username: "{{ item.value.name }}"
     password: "{{ item.value.pass }}"
@@ -8,12 +9,14 @@
     state: present
 
 - name: Create organization
+  awx.awx:
   organization:
     name: "{{ item.value.name }}"
     description: "Foo bar organization"
     state: present
     
  - name: Add user as a member of an organization (permissions on the organization are required)
+   awx.awx:
    user:
     username: "{{ item.value.name }}"
     password: "{{ item.value.pass }}"
