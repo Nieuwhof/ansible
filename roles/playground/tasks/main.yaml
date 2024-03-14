@@ -12,4 +12,7 @@
     name: "{{ item.value.name }}"
     description: "Foo bar organization"
     state: present
-    
+
+   debug:
+      msg: "User {{ item.key }} has name: {{ item.value.name }}"
+   loop: "{{ users | dict2items }}"
