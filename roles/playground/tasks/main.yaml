@@ -1,5 +1,12 @@
 ---
- - name: Display User Names
+ - name: Add user as a member of an organization (permissions on the organization are required)
+   user:
+    username: jdoe
+    password: foobarbaz
+    email: jdoe@example.org
+    organization: devopsorg
+    state: present  
+    
    debug:
       msg: "User {{ item.key }} has name: {{ item.value.name }}"
    loop: "{{ users | dict2items }}"
