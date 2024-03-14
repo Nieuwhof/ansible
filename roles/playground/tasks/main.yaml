@@ -8,7 +8,7 @@
     state: present
 
 - name: Create organization
-  organization:
+  awx.awx.organization:
     name: "{{ item.value.name }}"
     description: "Foo bar organization"
     state: present
