@@ -1,7 +1,7 @@
 ---   
 - hosts: gromit
   vars_files:
-    - vars/ansible.yml
+    - ansible.yml
   become: True
   become_user: root
 
