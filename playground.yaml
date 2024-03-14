@@ -1,11 +1,10 @@
 ---   
 - hosts: gromit
-   vars_files:
-       - vars/ansible.yml
+  vars_files:
+    - vars/ansible.yml
   become: True
   become_user: root
 
   roles:
     # - updateos
     - playground
-    
