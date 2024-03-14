@@ -1,8 +1,22 @@
 ---
+- name: Add user as a system administrator
+  user:
+    username: "{{ item.value.name }}"
+    password: "{{ item.value.pass }}"
+    email: jdoe@example.org
+    superuser: yes
+    state: present
+
+- name: Create organization
+  organization:
+    name: "{{ item.value.name }}"
+    description: "Foo bar organization"
+    state: present
+    
  - name: Add user as a member of an organization (permissions on the organization are required)
    user:
-    username: jdoe
-    password: foobarbaz
+    username: "{{ item.value.name }}"
+    password: "{{ item.value.pass }}"
     email: jdoe@example.org
     organization: devopsorg
     state: present  
