@@ -15,15 +15,3 @@
     description: "Foo bar organization"
     state: present
     
- - name: Add user as a member of an organization (permissions on the organization are required)
-   awx.awx:
-   user:
-    username: "{{ item.value.name }}"
-    password: "{{ item.value.pass }}"
-    email: jdoe@example.org
-    organization: "{{ item.value.name }}"
-    state: present  
-    
-   debug:
-      msg: "User {{ item.key }} has name: {{ item.value.name }}"
-   loop: "{{ users | dict2items }}"
