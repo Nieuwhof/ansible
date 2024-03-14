@@ -1,5 +1,5 @@
 ---
-  - name: Display User Names
-        debug:
-          msg: "User {{ item.key }} has name: {{ item.value.name }}"
-        loop: "{{ users | dict2items }}"
+ - name: Display User Names
+   debug:
+      msg: "User {{ item.key }} has name: {{ item.value.name }}"
+   loop: "{{ users | dict2items }}"
