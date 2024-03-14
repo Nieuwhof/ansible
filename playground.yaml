@@ -1,7 +1,7 @@
 ---   
 - hosts: localhost
   vars_files:
-    - ansible.yml
+    - vars/ansible.yml
   become: True
   become_user: root
 
