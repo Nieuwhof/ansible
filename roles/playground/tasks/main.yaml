@@ -1,6 +1,6 @@
 ---
    - name: Assign user as a system administrator
-      uri:
+      ansible.builtin.uri:
         url: "https://{{ ansible_host }}/api/v2/users/"
         method: POST
         user: your_username
@@ -18,7 +18,7 @@
       loop: "{{ users | dict2items }}"
 
     - name: Establish organization
-      uri:
+      ansible.builtin.uri:
         url: "https://{{ ansible_host }}/api/v2/organizations/"
         method: POST
         user: your_username
