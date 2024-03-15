@@ -1,6 +1,6 @@
 ---
 - name: Add user as a system administrator
-  user:
+  awx.awx.user:
     username: "{{ item.value.name }}"
     password: "{{ item.value.pass }}"
     email: jdoe@example.org
