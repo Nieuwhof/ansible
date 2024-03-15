@@ -6,7 +6,7 @@
 
     - name: Create User
       awx.awx.user:
-        name: "{{ item.user_name }}"
+        username: "{{ item.user_name }}"
         password: "{{ item.user_password }}"
         email: "{{ item.user_email }}"
         state: present
@@ -14,7 +14,7 @@
 
     - name: Add Organization
       awx.awx.organization:
-        name: "{{ item.organization_name }}"
+        usernamename: "{{ item.organization_name }}"
         state: present
       with_items: "{{ organizations }}"
       
