@@ -1,8 +1,8 @@
 ---
 
-    - name: Import awx.awx roles
-      import_role:
-        name: awx.awx.roles
+ #   - name: Import awx.awx roles
+ #     import_role:
+ #       name: awx.awx.roles
 
     - name: Import awx.awx modules
       import_tasks:
