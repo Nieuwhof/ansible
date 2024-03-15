@@ -1,5 +1,5 @@
 ---   
-- hosts: myregistry
+- hosts: localhost
   vars_files:
     - roles/playground/vars/ansible.yml
   become: True
