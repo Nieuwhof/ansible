@@ -13,6 +13,6 @@
     description: "Foo bar organization"
     state: present
 
-   debug:
+- debug:
       msg: "User {{ item.key }} has name: {{ item.value.name }}"
-   loop: "{{ users | dict2items }}"
+  loop: "{{ users | dict2items }}"
