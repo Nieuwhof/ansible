@@ -1,20 +1,38 @@
 ---
-- name: Assign user as a system administrator
-  awx.awx.user:
-    username: "{{ item.value.name }}"
-    password: "{{ item.value.pass }}"
-    email: jdoe@example.org
-    superuser: true
-    state: present
-  loop: "{{ users | dict2items }}"
+   - name: Assign user as a system administrator
+      uri:
+        url: "https://{{ ansible_host }}/api/v2/users/"
+        method: POST
+        user: your_username
+        password: your_password
+        body_format: json
+        body:
+          username: "{{ item.value.name }}"
+          password: "{{ item.value.pass }}"
+          email: jdoe@example.org
+          is_superuser: true
+        headers:
+          Content-Type: "application/json"
+        force_basic_auth: yes
+        status_code: 201
+      loop: "{{ users | dict2items }}"
 
-- name: Establish organization
-  awx.awx.organization:
-    name: "{{ item.value.name }}"
-    description: "Organization for Foo bar"
-    state: present
-  loop: "{{ organizations | dict2items }}"
+    - name: Establish organization
+      uri:
+        url: "https://{{ ansible_host }}/api/v2/organizations/"
+        method: POST
+        user: your_username
+        password: your_password
+        body_format: json
+        body:
+          name: "{{ item.value.name }}"
+          description: "Organization for Foo bar"
+        headers:
+          Content-Type: "application/json"
+        force_basic_auth: yes
+        status_code: 201
+      loop: "{{ organizations | dict2items }}"
 
-- debug:
-      msg: "The user {{ item.key }} is named: {{ item.value.name }}"
-  loop: "{{ users | dict2items }}"
+    - debug:
+        msg: "The user {{ item.key }} is named: {{ item.value.name }}"
+      loop: "{{ users | dict2items }}"
