@@ -5,7 +5,7 @@
         file: vars/ansible.yml
     
     - name: Create organization
-      awx.awx.organization:
+      tower_organization:
         name: "Foo"
         description: "Foo bar organization"
         state: present
