@@ -1,7 +1,7 @@
 ---
 all:
   hosts:
-    myregistry:
+    myregistry.bertus.cloud:
       set_hostname: myregistry.bertus.cloud
       ansible_host: 82.165.230.228
  #     ansible_port: 8080
