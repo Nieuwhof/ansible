@@ -17,8 +17,8 @@
         status_code: 201
      loop: "{{ users | dict2items }}"
 
-    - name: Establish organization
-      ansible.builtin.uri:
+   - name: Establish organization
+     ansible.builtin.uri:
         url: "https://{{ ansible_host }}/api/v2/organizations/"
         method: POST
         user: your_username
@@ -31,8 +31,8 @@
           Content-Type: "application/json"
         force_basic_auth: yes
         status_code: 201
-      loop: "{{ organizations | dict2items }}"
+     loop: "{{ organizations | dict2items }}"
 
-    - debug:
+   - debug:
         msg: "The user {{ item.key }} is named: {{ item.value.name }}"
-      loop: "{{ users | dict2items }}"
+     loop: "{{ users | dict2items }}"
