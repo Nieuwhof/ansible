@@ -15,7 +15,7 @@
           Content-Type: "application/json"
         force_basic_auth: yes
         status_code: 201
-      loop: "{{ users | dict2items }}"
+     loop: "{{ users | dict2items }}"
 
     - name: Establish organization
       ansible.builtin.uri:
