@@ -1,19 +1,11 @@
 ---
 
- #   - name: Import awx.awx roles
- #     import_role:
- #       name: awx.awx.roles
-
-    - name: Import awx.awx modules
-      import_tasks:
-        src: awx.awx.modules
-    
     - name: Load variables from vars/ansible.yml
       include_vars:
         file: vars/ansible.yml
 
     - name: Create User
-      awx_user:
+      awx.awx.user:
         name: "{{ item.user_name }}"
         password: "{{ item.user_password }}"
         email: "{{ item.user_email }}"
@@ -21,7 +13,7 @@
       with_items: "{{ users }}"
 
     - name: Add Organization
-      awx_organization:
+      awx.awx.organization:
         name: "{{ item.organization_name }}"
         state: present
       with_items: "{{ organizations }}"
