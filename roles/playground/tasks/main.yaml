@@ -1,38 +1,27 @@
 ---
-   - name: Assign user as a system administrator
-     ansible.builtin.uri:
-        url: "https://{{ set_hostname }}:8080/api/v2/users/"
-        method: POST
-        user: your_username
-        password: your_password
-        body_format: json
-        body:
-          username: "{{ item.value.name }}"
-          password: "{{ item.value.pass }}"
-          email: jdoe@example.org
-          is_superuser: true
-        headers:
-          Content-Type: "application/json"
-        force_basic_auth: yes
-        status_code: 201
-     loop: "{{ users | dict2items }}"
+    - name: Import awx.awx roles
+      import_role:
+        name: awx.awx.roles
 
-   - name: Establish organization
-     ansible.builtin.uri:
-        url: "https://{{ set_hostname }}:8080/api/v2/organizations/"
-        method: POST
-        user: your_username
-        password: your_password
-        body_format: json
-        body:
-          name: "{{ item.value.name }}"
-          description: "Organization for Foo bar"
-        headers:
-          Content-Type: "application/json"
-        force_basic_auth: yes
-        status_code: 201
-     loop: "{{ organizations | dict2items }}"
+    - name: Import awx.awx modules
+      import_tasks:
+        src: awx.awx.modules
 
-   - debug:
-        msg: "The user {{ item.key }} is named: {{ item.value.name }}"
-     loop: "{{ users | dict2items }}"
+    - name: Load variables from vars/ansible.yml
+      include_vars:
+        file: vars/ansible.yml
+
+    - name: Create User
+      awx_user:
+        name: "{{ item.user_name }}"
+        password: "{{ item.user_password }}"
+        email: "{{ item.user_email }}"
+        state: present
+      with_items: "{{ users }}"
+
+    - name: Add Organization
+      awx_organization:
+        name: "{{ item.organization_name }}"
+        state: present
+      with_items: "{{ organizations }}"
+      
