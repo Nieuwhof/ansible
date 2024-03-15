@@ -1,7 +1,7 @@
 ---   
 - hosts: myregistry
   vars_files:
-    - vars/ansible.yml
+    - /vars/ansible.yml
   become: True
   become_user: root
 
