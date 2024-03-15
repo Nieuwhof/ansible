@@ -1,5 +1,8 @@
 ---   
 - hosts: myregistry
+  gather_facts: false
+  collections:
+    - awx.awx
   vars_files:
     - roles/playground/vars/ansible.yml
   become: True
