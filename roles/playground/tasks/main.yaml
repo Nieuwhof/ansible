@@ -1,4 +1,13 @@
 ---
+
+    - name: Import awx.awx roles
+      import_role:
+        name: awx.awx.roles
+
+    - name: Import awx.awx modules
+      import_tasks:
+        src: awx.awx.modules
+    
     - name: Load variables from vars/ansible.yml
       include_vars:
         file: vars/ansible.yml
