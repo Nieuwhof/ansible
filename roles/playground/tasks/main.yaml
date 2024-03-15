@@ -1,6 +1,6 @@
 ---
    - name: Assign user as a system administrator
-      ansible.builtin.uri:
+     ansible.builtin.uri:
         url: "https://{{ ansible_host }}/api/v2/users/"
         method: POST
         user: your_username
