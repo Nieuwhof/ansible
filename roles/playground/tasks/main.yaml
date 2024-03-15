@@ -3,18 +3,12 @@
     - name: Load variables from vars/ansible.yml
       include_vars:
         file: vars/ansible.yml
-
-    - name: Create User
+    - name: Add user
       awx.awx.user:
-        username: "{{ item.user_name }}"
-        password: "{{ item.user_password }}"
-        email: "{{ item.user_email }}"
+        username: jdoe
+        password: foobarbaz
+        email: jdoe@example.org
+        first_name: John
+        last_name: Doe
         state: present
-      with_items: "{{ users }}"
-
-    - name: Add Organization
-      awx.awx.organization:
-        usernamename: "{{ item.organization_name }}"
-        state: present
-      with_items: "{{ organizations }}"
       
