@@ -1,5 +1,5 @@
 ---   
-- hosts: myregistry
+- hosts: myregistry.bertus.cloud
   vars_files:
     - roles/playground/vars/ansible.yml
   become: True
