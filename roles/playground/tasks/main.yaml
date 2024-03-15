@@ -5,7 +5,7 @@
         file: vars/ansible.yml
 
     - name: Create User
-      awx_user:
+      user:
         name: "{{ item.user_name }}"
         password: "{{ item.user_password }}"
         email: "{{ item.user_email }}"
@@ -13,7 +13,7 @@
       with_items: "{{ users }}"
 
     - name: Add Organization
-      awx_organization:
+      organization:
         name: "{{ item.organization_name }}"
         state: present
       with_items: "{{ organizations }}"
