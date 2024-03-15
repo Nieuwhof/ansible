@@ -10,4 +10,7 @@ collections:
   - name: community.digitalocean 
     version: 1.0.0
     source: https://galaxy.ansible.com
-    
+
+  - name: awx.awx
+    version: 22.5.0
+    source: https://galaxy.ansible.com
