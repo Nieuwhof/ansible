@@ -5,9 +5,7 @@
         file: vars/ansible.yml
     
     - name: Create organization
-      awx.awx.organization:
+      organization:
         name: "Foo"
         description: "Foo bar organization"
-        state: present
-        controller_config_file: "~/tower_cli.cfg"
-      
+        state: present  
