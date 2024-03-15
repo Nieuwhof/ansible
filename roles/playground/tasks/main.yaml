@@ -1,18 +1,20 @@
 ---
-- name: Add user as a system administrator
+- name: Assign user as a system administrator
   awx.awx.user:
     username: "{{ item.value.name }}"
     password: "{{ item.value.pass }}"
     email: jdoe@example.org
-    superuser: yes
+    superuser: true
     state: present
+  loop: "{{ users | dict2items }}"
 
-- name: Create organization
+- name: Establish organization
   awx.awx.organization:
     name: "{{ item.value.name }}"
-    description: "Foo bar organization"
+    description: "Organization for Foo bar"
     state: present
+  loop: "{{ organizations | dict2items }}"
 
 - debug:
-      msg: "User {{ item.key }} has name: {{ item.value.name }}"
+      msg: "The user {{ item.key }} is named: {{ item.value.name }}"
   loop: "{{ users | dict2items }}"
