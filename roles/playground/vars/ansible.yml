@@ -1,20 +1,12 @@
 ---
 users:
-  koos:
-    name: Koos
-    pass: k1
-    organization: Default
-    credential: Machine
-    teams: 
-  andre:
-    name: Andre
-    pass: a1
-    organization: Default
-    credential: Machine
-    teams: 
-  user1:
-    name: user1
-    pass: u1
-    organization: Default
-    credential: Machine
-    teams: testteam
+  - user_name: "user1"
+    user_password: "password1"
+    user_email: "user1@example.com"
+  - user_name: "user2"
+    user_password: "password2"
+    user_email: "user2@example.com"
+
+organizations:
+  - organization_name: "org1"
+  - organization_name: "org2"
