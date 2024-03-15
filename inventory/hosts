@@ -3,7 +3,7 @@ all:
   hosts:
     myregistry:
       set_hostname: myregistry.bertus.cloud
-      ansible_host: 82.165.230.228 
+      ansible_host: 82.165.230.228:8080 
     gromit:
       set_hostname: gromit.bertus.cloud
       ansible_host: 194.164.19.68
