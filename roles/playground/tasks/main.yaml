@@ -3,12 +3,11 @@
     - name: Load variables from vars/ansible.yml
       include_vars:
         file: vars/ansible.yml
-    - name: Add user
-      awx.awx.user:
-        username: jdoe
-        password: foobarbaz
-        email: jdoe@example.org
-        first_name: John
-        last_name: Doe
+    
+    - name: Create organization
+      organization:
+        name: "Foo"
+        description: "Foo bar organization"
         state: present
+        controller_config_file: "~/tower_cli.cfg"
       
