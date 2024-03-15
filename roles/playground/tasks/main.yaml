@@ -1,11 +1,10 @@
 ---
-
     - name: Load variables from vars/ansible.yml
       include_vars:
         file: vars/ansible.yml
 
     - name: Create User
-      user:
+      awx_user:
         name: "{{ item.user_name }}"
         password: "{{ item.user_password }}"
         email: "{{ item.user_email }}"
@@ -13,7 +12,7 @@
       with_items: "{{ users }}"
 
     - name: Add Organization
-      organization:
+      awx_organization:
         name: "{{ item.organization_name }}"
         state: present
       with_items: "{{ organizations }}"
