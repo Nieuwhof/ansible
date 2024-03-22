@@ -1,13 +1,13 @@
 ---   
 - hosts: myregistry
   gather_facts: false
-  connection: local
+#  connection: local
   collections:
     - awx.awx
   vars_files:
     - roles/playground/vars/ansible.yml
   become: True
-  become_method: 'su'
+#  become_method: 'su'
   become_user: root
 
   roles:
