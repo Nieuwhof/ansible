@@ -1,8 +1,8 @@
 ---
 
-    - name: Load variables from vars/ansible.yml
-      include_vars:
-        file: vars/ansible.yml
+#    - name: Load variables from vars/ansible.yml
+#      include_vars:
+#        file: vars/ansible.yml
     
     - name: Create organization
       awx.awx.organization:
