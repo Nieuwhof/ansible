@@ -1,6 +1,7 @@
 ---   
 - hosts: myregistry
   gather_facts: false
+  connection: local
   collections:
     - awx.awx
   vars_files:
