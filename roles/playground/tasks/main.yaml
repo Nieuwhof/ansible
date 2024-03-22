@@ -7,8 +7,8 @@
     - name: Create organization
       awx.awx.organization:
         api_url: 'http://myregistry.bertus.cloud:8080'
-        api_username: 'root'
-        api_password: 'B0sspasswd01!!'
+        api_username: 'ops'
+        api_password: 'ops'
         state: present  
         resource: organization
         name: 'Organixation Description'
