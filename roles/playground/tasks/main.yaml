@@ -13,5 +13,6 @@
  #       resource: organization
         name: 'Organixation Description'
         description: 'Organixation Description'
+        ee: true
       register: result
       
