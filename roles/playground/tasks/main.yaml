@@ -5,7 +5,7 @@
 #        file: vars/ansible.yml
     
     - name: Create organization
-      awx.awx:
+      awx.awx.application:
         api_url: 'http://myregister.bertus.cloud'
         api_username: 'admin'
         api_password: 'B0sspasswd01!!'
