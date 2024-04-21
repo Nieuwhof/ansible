@@ -1,0 +1,67 @@
+---
+- name: Create and push container image with Ansible Builder
+  hosts: localhost
+  connection: local
+  vars:
+    container_image: '<your_container_image>'
+    container_tags:
+      - latest
+      - 1.0
+    requirements_file: requirements.txt
+    collections_file: requirements.yml
+    bindep_file: bindep.txt
+  tasks:
+    - name: Install Ansible Builder
+      pip:
+        name: ansible-builder
+        state: present
+
+    - name: Create requirements.yml
+      copy:
+        content: |
+          ---
+          collections:
+            - community.docker
+        dest: "{{ collections_file }}"
+
+    - name: Create requirements.txt
+      copy:
+        content: |
+          # List your Python dependencies here
+          # For example:
+          # requests
+          # paramiko
+        dest: "{{ requirements_file }}"
+
+    - name: Create bindep.txt
+      copy:
+        content: |
+          # List your system dependencies here
+          # For example:
+          # python3-devel
+          # libffi-devel
+        dest: "{{ bindep_file }}"
+
+    - name: Build container image with Ansible Builder
+      command: ansible-builder build --requirements "{{ collections_file }}" --tag "{{ container_image }}" --requirements "{{ requirements_file }}" --bindep "{{ bindep_file }}" --tag "{{ item }}"
+      loop: "{{ container_tags }}"
+      args:
+        chdir: "{{ playbook_dir }}"
+      register: build_output
+
+    - name: Push container image to container registry
+      community.docker.docker_image:
+        name: "{{ container_image }}"
+        source: push
+        tag: "{{ item }}"
+      loop: "{{ container_tags }}"
+      when: build_output is changed
+      register: push_output
+
+    - name: Display build and push output
+      debug:
+        msg: |
+          Build output:
+          {{ build_output.stdout }}
+          Push output:
+          {{ push_output.results | map(attribute='stdout') | join('\n') }}
