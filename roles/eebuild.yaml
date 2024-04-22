@@ -62,7 +62,7 @@
     - name: Log into container registry
       community.docker.docker_login:
         username: "bnieuwhof"
-        password: "NY8gqtaa01!!"
+        password: "NY8"
 
     - name: Build container image with Ansible Builder
       command: ansible-builder build --requirements "{{ collections_file }}" --tag "{{ container_image }}" --requirements "{{ requirements_file }}" --bindep "{{ bindep_file }}" --tag "{{ item }}"
