@@ -40,6 +40,19 @@
           # For example:
           # python3-devel
           # libffi-devel
+            findutils
+            net-tools
+            curl
+            gcc
+            git
+            libffi-dev
+            libpython3-dev
+            libssl-dev
+            lsb-release
+            make
+            python3-full
+            wget
+            ansible
         dest: "{{ bindep_file }}"
 
     - name: Build container image with Ansible Builder
