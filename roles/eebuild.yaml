@@ -22,6 +22,10 @@
           ---
           collections:
             - community.docker
+            - awx.awx
+            - ansible.utils
+            - community.general
+            - community.digitalocean
         dest: "{{ collections_file }}"
 
     - name: Create requirements.txt
@@ -29,7 +33,7 @@
         content: |
           # List your Python dependencies here
           # For example:
-           #  requests
+          #  requests
              paramiko
         dest: "{{ requirements_file }}"
 
