@@ -80,7 +80,7 @@
     - name: Log into container registry
       community.docker.docker_login:
         username: "{{ acc_username }}"
-        password: "NY8gqtaa01!!"
+        password: "NY8"
 
     - name: Build container image with Ansible Builder
       command: ansible-builder build -v3 -t "{{ container_image }}"
