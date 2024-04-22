@@ -3,10 +3,11 @@
   hosts: localhost
   connection: local
   vars:
-    container_image: '<your_container_image>'
+    acc_username: 'bnieuwhof'
+    container_image: 'ee220424'
     container_tags:
       - latest
-      - 1.0
+      - 2.0
     requirements_file: requirements.txt
     collections_file: requirements.yml
     bindep_file: bindep.txt
@@ -44,46 +45,57 @@
           # For example:
           # python3-devel
           # libffi-devel
-            findutils
-            net-tools
-            curl
-            gcc
-            git
-            libffi-dev
-            libpython3-dev
-            libssl-dev
-            lsb-release
-            make
-            python3-full
-            wget
-            ansible
+          #  findutils
+          #  net-tools
+          #  curl
+          #  gcc
+          #  git
+          #  libffi-dev
+          #  libpython3-dev
+          #  libssl-dev
+          #  lsb-release
+          #  make
+          #  python3-full
+          #  wget
+          #  ansible
+
+          # Base requirements for Ubuntu
+            git-core          [platform:dpkg]
+            libssl-dev        [platform:dpkg]
+            libffi-dev        [platform:dpkg]
+            python3           [platform:dpkg]
+            python3-apt       [platform:dpkg]
+            python3-dev       [platform:dpkg]
+
+          # Base requirements for RPM distros
+            gcc-c++           [platform:rpm]
+            git               [platform:rpm]
+            libffi-devel      [platform:rpm]
+            openssl-devel     [platform:rpm]
+            python3-devel     [platform:rpm]
+            net-tools         [platform:rpm]
+
         dest: "{{ bindep_file }}"
 
     - name: Log into container registry
       community.docker.docker_login:
-        username: "bnieuwhof"
-        password: "NY8"
+        username: "{{ acc_username }}"
+        password: "NY8gqtaa01!!"
 
     - name: Build container image with Ansible Builder
-      command: ansible-builder build --requirements "{{ collections_file }}" --tag "{{ container_image }}" --requirements "{{ requirements_file }}" --bindep "{{ bindep_file }}" --tag "{{ item }}"
-      loop: "{{ container_tags }}"
+      command: ansible-builder build -v3 -t "{{ container_image }}"
       args:
         chdir: "{{ playbook_dir }}"
       register: build_output
 
-    - name: Push container image to container registry
-      community.docker.docker_image:
-        name: "{{ container_image }}"
-        source: push
-        tag: "{{ item }}"
-      loop: "{{ container_tags }}"
-      when: build_output is changed
-      register: push_output
+    - name: Build image with Ansible Builder
+      command: ansible-builder build -v3 -t "{{ container_image }}"
 
-    - name: Display build and push output
-      debug:
-        msg: |
-          Build output:
-          {{ build_output.stdout }}
-          Push output:
-          {{ push_output.results | map(attribute='stdout') | join('\n') }}
+    - name: Tag final
+      command: docker tag "{{ container_image }}" "{{ acc_username }}/{{ container_image }}:{{ item }}"
+      loop: "{{ container_tags }}"
+
+    - name: Push container image to container registry
+      command: docker push "{{ acc_username }}/{{ container_image }}:{{ item }}"
+      loop: "{{ container_tags }}"
+      
