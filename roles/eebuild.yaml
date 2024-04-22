@@ -29,8 +29,8 @@
         content: |
           # List your Python dependencies here
           # For example:
-          # requests
-          # paramiko
+           #  requests
+             paramiko
         dest: "{{ requirements_file }}"
 
     - name: Create bindep.txt
