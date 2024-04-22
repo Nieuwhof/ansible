@@ -8,7 +8,7 @@
     container_image: 'ee220424'
     container_tags:
       - latest
-      - 2.0
+      - 1.0
     requirements_file: requirements.txt
     collections_file: requirements.yml
     bindep_file: bindep.txt
