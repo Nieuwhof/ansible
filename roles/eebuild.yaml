@@ -117,7 +117,9 @@
 
           # Base requirements for RPM distros
             gcc-c++           [platform:rpm]
+            openssh-server    [platform:dnf]
             git               [platform:rpm]
+            iputils           [platform:dnf]
             libffi-devel      [platform:rpm]
             openssl-devel     [platform:rpm]
             python3-devel     [platform:rpm]
