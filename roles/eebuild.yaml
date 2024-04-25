@@ -64,7 +64,19 @@
           # List your Python dependencies here
           # For example:
           #  requests
-             paramiko
+              paramiko
+              git+https://github.com/ansible/ansible-sign
+              ncclient
+              pykerberos
+              pyOpenSSL
+              pypsrp[kerberos,credssp]
+              pywinrm[kerberos,credssp]
+              toml
+              pexpect>=4.5
+              python-daemon
+              pyyaml
+              six
+              receptorctl
         dest: "{{ requirements_file }}"
 
     - name: Create bindep.txt
