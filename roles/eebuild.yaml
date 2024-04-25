@@ -5,7 +5,7 @@
   connection: local
   vars:
     acc_username: 'bnieuwhof'
-    container_image: 'ee220424'
+    container_image: 'eetest'
     container_tags:
       - latest
       - 1.0
@@ -33,6 +33,13 @@
               package_pip: ansible-core>=2.15.0rc2,<2.16
             ansible_runner:
               package_pip: ansible-runner
+          additional_build_steps:
+            prepend: |
+                RUN whoami
+                RUN cat /etc/os-release
+            append:
+                - RUN echo This is a post-install command!
+                - RUN ls -la /etc
         dest: "{{ execution_environment_file }}"         
 
     - name: Create requirements.yml
