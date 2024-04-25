@@ -45,6 +45,17 @@
             - ansible.utils
             - community.general
             - community.digitalocean
+            - amazon.aws
+            - theforeman.foreman
+            - google.cloud
+            - openstack.cloud
+            - community.vmware
+            - ovirt.ovirt
+            - kubernetes.core
+            - ansible.posix
+            - ansible.windows
+            - redhatinsights.insights
+            - kubevirt.core
         dest: "{{ collections_file }}"
 
     - name: Create requirements.txt
