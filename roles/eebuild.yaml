@@ -93,20 +93,8 @@
           # For example:
           # python3-devel
           # libffi-devel
-          #  findutils
-          #  net-tools
-          #  curl
-          #  gcc
-          #  git
-          #  libffi-dev
-          #  libpython3-dev
-          #  libssl-dev
-          #  lsb-release
-          #  make
-          #  python3-full
-          #  wget
-          #  ansible
-
+          # findutils
+          
           # Base requirements for Ubuntu
             git-core          [platform:dpkg]
             libssl-dev        [platform:dpkg]
@@ -120,6 +108,7 @@
             openssh-server    [platform:dnf]
             git               [platform:rpm]
             iputils           [platform:dnf]
+            findutils         [platform:rpm]
             libffi-devel      [platform:rpm]
             openssl-devel     [platform:rpm]
             python3-devel     [platform:rpm]
@@ -150,14 +139,14 @@
         username: "{{ acc_username }}"
         password: "NY8"
 
-    - name: Build container image with Ansible Builder
-      command: ansible-builder build -v3 -t "{{ container_image }}"
-      args:
-        chdir: "{{ playbook_dir }}"
-      register: build_output
+#    - name: Build container image with Ansible Builder
+#      command: ansible-builder build -v3 -t "{{ container_image }}"
+#      args:
+#        chdir: "{{ playbook_dir }}"
+#      register: build_output
 
     - name: Build image with Ansible Builder
-      command: ansible-builder build -v3 -t "{{ container_image }}"
+      command: ansible-builder build -v3 -t "{{ container_image }}" --no-cache
 
     - name: Tag final
       command: docker tag "{{ container_image }}" "{{ acc_username }}/{{ container_image }}:{{ item }}"
