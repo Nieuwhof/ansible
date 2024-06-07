@@ -1,0 +1,28 @@
+---
+- name: Install Ollama using a remote install script
+  hosts: all
+  become: yes
+  vars:
+    ollama_script_url: "https://ollama.com/install.sh" 
+
+  tasks:
+    - name: Fetch and execute Ollama installation script
+      block:
+        - name: Download the install script from provided URL
+          ansible.builtin.shell: |
+            curl -fsSL "{{ ollama_script_url }}" -o /tmp/install-ollama.sh
+
+        - name: Execute the downloaded installation script
+          ansible.builtin.lineinfile:
+            path: /tmp/install-ollama.sh
+            line: 'source /tmp/install-ollama.sh'
+            regexp: '^#!'
+            backup: yes
+
+        - name: Remove the downloaded installation script file after execution
+          ansible.builtin.file:
+            path: /tmp/install-ollama.sh
+            state: absent
+      rescue:
+        - debug: msg="Failed to execute tasks in block"
+
