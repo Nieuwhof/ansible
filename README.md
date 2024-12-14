@@ -20,7 +20,7 @@ Portainer Template:
 https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Template/template.json
 
 ###################
-### minikube ###
+###   minikube  ###
 ###################
 AWX on Minikube 
 
